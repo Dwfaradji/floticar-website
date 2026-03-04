@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "docker:build": "docker build -t floticar-site .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env.local floticar-site"
   },
   "dependencies": {
     "framer-motion": "^12.34.3",
