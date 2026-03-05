@@ -35,32 +35,32 @@ export default function FinalCTA() {
                     transition={{ delay: 0.1 }}
                     className="mb-6 flex justify-center"
                 >
-                    <span className="inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-400/8 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-300">
-                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-blue-400" />
+                    <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 dark:border-blue-400/20 bg-blue-50 dark:bg-blue-900/30 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-700 dark:text-blue-300">
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-blue-500 dark:bg-blue-400" />
                         Sans engagement · Démo gratuite
                     </span>
                 </motion.div>
 
-                <h2 className="mb-4 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
                     Prêt à optimiser{" "}
-                    <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-blue-600 dark:from-blue-400 to-cyan-500 dark:to-cyan-400 bg-clip-text text-transparent">
                         votre flotte ?
                     </span>
                 </h2>
-                <p className="mb-12 text-lg text-slate-400">
+                <p className="mb-12 text-lg text-gray-600 dark:text-slate-400">
                     Contactez-nous pour une démonstration personnalisée. Nous vous répondons sous 24h.
                 </p>
 
                 <div className="flex flex-wrap items-center justify-center gap-4">
                     <motion.button
-                        onClick={() => router.push("/contact")}
+                        onClick={() => router.push("/demande-de-demo")}
                         whileHover={{ scale: 1.05, y: -3 }}
                         whileTap={{ scale: 0.97 }}
                         className="group relative flex items-center gap-2.5 overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 to-blue-500 px-10 py-4 text-base font-bold text-white shadow-2xl shadow-blue-900/50 transition"
-                        aria-label="Demander un devis Floticar"
+                        aria-label="Demander une démo Floticar"
                     >
                         <span className="relative z-10 flex items-center gap-2.5">
-                            Demander un devis
+                            Demander une démo
                             <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
                         </span>
                         <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 transition-opacity group-hover:opacity-100" />
@@ -70,13 +70,13 @@ export default function FinalCTA() {
                         onClick={() => router.push("/contact")}
                         whileHover={{ scale: 1.04, y: -2 }}
                         whileTap={{ scale: 0.97 }}
-                        className="rounded-2xl border border-white/10 bg-white/5 px-8 py-4 text-base font-semibold text-white backdrop-blur-sm transition hover:border-white/20 hover:bg-white/10"
+                        className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-8 py-4 text-base font-semibold text-gray-700 dark:text-white backdrop-blur-sm transition hover:border-gray-300 dark:hover:border-white/20 hover:bg-gray-50 dark:hover:bg-white/10 shadow-sm dark:shadow-none"
                     >
                         Nous contacter
                     </motion.button>
                 </div>
 
-                <p className="mt-8 text-xs text-slate-600">
+                <p className="mt-8 text-xs text-gray-500 dark:text-slate-500">
                     Sans engagement · Réponse sous 24h · Données sécurisées
                 </p>
             </motion.div>

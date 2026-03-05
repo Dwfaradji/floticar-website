@@ -15,10 +15,10 @@ export default function TargetSection() {
                 className="mx-auto max-w-5xl"
             >
                 <div className="mb-16 text-center">
-                    <motion.p variants={fadeUp} className="mb-3 text-xs font-bold uppercase tracking-widest text-blue-400">
+                    <motion.p variants={fadeUp} className="mb-3 text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
                         Pour qui ?
                     </motion.p>
-                    <motion.h2 variants={fadeUp} className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                    <motion.h2 variants={fadeUp} className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
                         Conçu pour les entreprises qui bougent
                     </motion.h2>
                 </div>
@@ -29,11 +29,11 @@ export default function TargetSection() {
                             key={title}
                             variants={fadeUp}
                             whileHover={{ y: -4, borderColor: "rgba(59,130,246,0.25)" }}
-                            className="rounded-2xl border border-white/5 bg-white/[0.02] p-8 text-center transition-all duration-300"
+                            className="rounded-2xl border border-gray-200 dark:border-white/5 bg-white dark:bg-white/[0.02] p-8 text-center shadow-sm dark:shadow-none transition-all duration-300"
                         >
                             <span className="mb-5 block text-5xl">{emoji}</span>
-                            <h3 className="mb-3 text-lg font-bold text-white">{title}</h3>
-                            <p className="text-sm leading-relaxed text-slate-400">{desc}</p>
+                            <h3 className="mb-3 text-lg font-bold text-gray-900 dark:text-white">{title}</h3>
+                            <p className="text-sm leading-relaxed text-gray-600 dark:text-slate-400">{desc}</p>
                         </motion.div>
                     ))}
                 </div>

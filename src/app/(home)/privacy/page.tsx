@@ -29,17 +29,17 @@ function Section({ id, number, icon: Icon, title, children }: {
     <motion.section id={id}
       initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.5 }}
-      className="rounded-2xl border border-gray-100 bg-white p-7 shadow-sm"
+      className="rounded-2xl border border-gray-100 bg-white/80 dark:bg-gray-900/50 dark:border-gray-800 backdrop-blur-sm p-7 shadow-sm"
     >
       <div className="mb-4 flex items-center gap-3">
-        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+        <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
           <Icon size={18} />
         </div>
-        <h2 className="text-lg font-bold text-gray-900">
+        <h2 className="text-lg font-bold text-foreground">
           <span className="mr-2 text-blue-400">{number}.</span>{title}
         </h2>
       </div>
-      <div className="text-sm leading-relaxed text-gray-600 space-y-2">{children}</div>
+      <div className="text-sm leading-relaxed text-gray-500 dark:text-gray-400 space-y-2">{children}</div>
     </motion.section>
   );
 }
@@ -59,7 +59,7 @@ function List({ items }: { items: React.ReactNode[] }) {
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-white">
+    <main className="min-h-screen">
 
       {/* HERO */}
       <section className="relative overflow-hidden px-6 pb-12 pt-24 text-center">
@@ -71,11 +71,11 @@ export default function PrivacyPage() {
           <Shield size={12} /> Confidentialité
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-          className="mb-3 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+          className="mb-3 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
           Politique de confidentialité
         </motion.h1>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-          className="inline-flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs text-gray-500 shadow-sm">
+          className="inline-flex items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400 shadow-sm">
           <RefreshCw size={11} /> Dernière mise à jour : 8 février 2026
         </motion.div>
       </section>
@@ -85,12 +85,12 @@ export default function PrivacyPage() {
 
           {/* Sidebar TOC */}
           <aside className="hidden w-52 shrink-0 lg:block">
-            <div className="sticky top-24 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
-              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-gray-400">Sommaire</p>
+            <div className="sticky top-24 rounded-2xl border border-gray-100 bg-white/80 dark:bg-gray-900/50 dark:border-gray-800 backdrop-blur-sm p-5 shadow-sm">
+              <p className="mb-3 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Sommaire</p>
               <nav className="space-y-0.5">
                 {sections.map(({ id, title }) => (
                   <a key={id} href={`#${id}`}
-                    className="block rounded-lg px-3 py-1.5 text-xs text-gray-500 transition hover:bg-blue-50 hover:text-blue-600">
+                    className="block rounded-lg px-3 py-1.5 text-xs text-gray-500 dark:text-gray-400 transition hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:text-blue-600 dark:hover:text-blue-400">
                     {title}
                   </a>
                 ))}
@@ -196,7 +196,7 @@ export default function PrivacyPage() {
                   <Mail size={14} /> contact@devevoke.com
                 </a>
                 <a href="/contact"
-                  className="inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-600 hover:border-blue-200 hover:text-blue-600 transition">
+                  className="inline-flex items-center gap-2 rounded-xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50 px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:border-blue-200 dark:hover:border-blue-800 hover:text-blue-600 dark:hover:text-blue-400 transition">
                   Formulaire de contact
                 </a>
               </div>

@@ -10,7 +10,7 @@ import FinalCTA from "@/components/sections/FinalCTA";
 
 export default function FleetLandingPage() {
   return (
-    <main className="flex flex-col overflow-x-hidden bg-[#05070f] text-white">
+    <main className="flex flex-col overflow-x-hidden transition-colors duration-300">
       <HeroSection />
       <StatsSection />
       <ProblemSection />

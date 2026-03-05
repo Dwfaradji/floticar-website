@@ -54,7 +54,7 @@ export default function FAQPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-white">
+    <main className="min-h-screen">
 
       {/* HERO */}
       <section className="relative overflow-hidden px-6 pb-12 pt-24 text-center">
@@ -65,11 +65,11 @@ export default function FAQPage() {
           <HelpCircle size={12} /> FAQ
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-          className="mb-3 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+          className="mb-3 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
           Questions fréquentes
         </motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-          className="mx-auto max-w-xl text-gray-500">
+          className="mx-auto max-w-xl text-gray-500 dark:text-gray-400">
           Retrouvez les réponses aux questions les plus courantes sur Floticar.
         </motion.p>
       </section>
@@ -80,8 +80,8 @@ export default function FAQPage() {
           {categories.map((cat) => (
             <button key={cat} onClick={() => { setSelectedCategory(cat); setOpenIndex(null); }}
               className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-200 ${selectedCategory === cat
-                  ? "bg-blue-600 text-white shadow-md shadow-blue-200"
-                  : "border border-gray-200 bg-white text-gray-600 hover:border-blue-200 hover:text-blue-600"
+                ? "bg-blue-600 text-white shadow-md shadow-blue-200"
+                : "border border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 text-gray-500 dark:text-gray-400 hover:border-blue-200 hover:text-blue-600"
                 }`}
             >
               {cat !== "Toutes" && (
@@ -105,7 +105,7 @@ export default function FAQPage() {
             return (
               <motion.div key={i}
                 variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.35 } } }}
-                className={`overflow-hidden rounded-2xl border transition-all duration-200 ${isOpen ? "border-blue-200 bg-white shadow-md shadow-blue-50" : "border-gray-100 bg-white hover:border-gray-200"}`}
+                className={`overflow-hidden rounded-2xl border transition-all duration-200 ${isOpen ? "border-blue-200 bg-white dark:border-blue-800 dark:bg-gray-900/80 shadow-md shadow-blue-50" : "border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-gray-900/50 hover:border-gray-200"}`}
               >
                 <button onClick={() => setOpenIndex(isOpen ? null : i)}
                   className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
@@ -114,7 +114,7 @@ export default function FAQPage() {
                     <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-white ${categoryColors[faq.category] ?? "bg-gray-400"}`}>
                       <Icon size={15} />
                     </div>
-                    <span className={`text-sm font-semibold ${isOpen ? "text-blue-700" : "text-gray-800"}`}>
+                    <span className={`text-sm font-semibold ${isOpen ? "text-blue-700 dark:text-blue-400" : "text-foreground"}`}>
                       {faq.question}
                     </span>
                   </div>
@@ -129,7 +129,7 @@ export default function FAQPage() {
                       initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.25, ease: "easeInOut" }}
                     >
-                      <p className="px-5 pb-5 pt-0 text-sm leading-relaxed text-gray-500 pl-16">
+                      <p className="px-5 pb-5 pt-0 text-sm leading-relaxed text-gray-500 dark:text-gray-400 pl-16">
                         {faq.answer}
                       </p>
                     </motion.div>
@@ -144,7 +144,7 @@ export default function FAQPage() {
       {/* QUESTION FORM */}
       <section className="px-6 pb-24">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="mx-auto max-w-xl rounded-3xl border border-gray-100 bg-white p-8 shadow-xl shadow-gray-100"
+          className="mx-auto max-w-xl rounded-3xl border border-gray-100 dark:border-gray-800 bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm p-8 shadow-xl shadow-gray-100 dark:shadow-none"
         >
           <AnimatePresence mode="wait">
             {status === "success" ? (
@@ -161,15 +161,15 @@ export default function FAQPage() {
               </motion.div>
             ) : (
               <motion.div key="form">
-                <h2 className="mb-1 text-lg font-bold text-gray-900">Votre question n&apos;est pas listée ?</h2>
-                <p className="mb-5 text-sm text-gray-400">Posez-la directement, nous vous répondrons sous 24h.</p>
+                <h2 className="mb-1 text-lg font-bold text-foreground">Votre question n&apos;est pas listée ?</h2>
+                <p className="mb-5 text-sm text-gray-500 dark:text-gray-400">Posez-la directement, nous vous répondrons sous 24h.</p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <input type="text" name="name" placeholder="Votre nom" value={form.name} onChange={handleChange} required
-                    className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100" />
+                    className="w-full rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100" />
                   <input type="email" name="email" placeholder="Votre email" value={form.email} onChange={handleChange} required
-                    className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100" />
+                    className="w-full rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100" />
                   <textarea name="message" placeholder={`Votre question sur ${selectedCategory}...`} value={form.message} onChange={handleChange} rows={3}
-                    className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100" />
+                    className="w-full resize-none rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-100" />
                   {status === "error" && <p className="text-sm text-red-500">Une erreur est survenue. Réessayez.</p>}
                   <button type="submit" disabled={status === "loading"}
                     className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 py-3 text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60">

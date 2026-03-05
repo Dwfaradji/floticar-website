@@ -80,8 +80,10 @@ export const metadata: Metadata = {
 
 import Header from "@/components/home/header";
 import Footer from "@/components/home/footer";
+import { Providers } from "@/components/Providers";
 
 const jsonLd = {
+  // ... (keep existing)
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Floticar",
@@ -105,7 +107,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -113,10 +115,22 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Header />
-        {children}
-        <Footer />
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-blue-500 selection:text-white`}>
+        <Providers>
+          {/* Global Background Elements */}
+          <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+            {/* Ambient glows */}
+            <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/4 rounded-full bg-blue-600/10 blur-[120px] dark:bg-blue-600/15" />
+            <div className="absolute left-1/4 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-cyan-500/5 blur-[100px] dark:bg-cyan-500/10" />
+
+            {/* Grid overlay */}
+            <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_70%_80%_at_50%_0%,black,transparent)]" />
+          </div>
+
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

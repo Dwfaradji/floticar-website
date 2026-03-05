@@ -23,18 +23,18 @@ export default function TestimonialSection() {
                     ))}
                 </div>
 
-                <blockquote className="mb-8 text-xl font-medium leading-relaxed text-white sm:text-2xl">
+                <blockquote className="mb-8 text-xl font-medium leading-relaxed text-gray-900 dark:text-white sm:text-2xl">
                     &ldquo;Depuis que nous utilisons Floticar, nous avons réduit nos coûts de flotte de
-                    <span className="font-extrabold text-blue-300"> 18&nbsp;%</span> en six mois. La visibilité
+                    <span className="font-extrabold text-blue-600 dark:text-blue-300"> 18&nbsp;%</span> en six mois. La visibilité
                     sur nos dépenses est incomparable.&rdquo;
                 </blockquote>
 
                 <div className="inline-flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-700 text-sm font-bold text-white">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-blue-500 dark:from-blue-500 dark:to-blue-700 text-sm font-bold text-white">
                         JD
                     </div>
-                    <p className="text-left text-sm text-slate-400">
-                        <span className="font-semibold text-white">J. Dupont</span>
+                    <p className="text-left text-sm text-gray-600 dark:text-slate-400">
+                        <span className="font-semibold text-gray-900 dark:text-white">J. Dupont</span>
                         <br />
                         Responsable de flotte · PME de services (Île-de-France)
                     </p>

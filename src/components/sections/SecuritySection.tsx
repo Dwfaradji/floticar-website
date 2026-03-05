@@ -15,13 +15,13 @@ export default function SecuritySection() {
                 className="mx-auto max-w-4xl"
             >
                 <div className="mb-14 text-center">
-                    <motion.p variants={fadeUp} className="mb-3 text-xs font-bold uppercase tracking-widest text-blue-400">
+                    <motion.p variants={fadeUp} className="mb-3 text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
                         Sécurité
                     </motion.p>
-                    <motion.h2 variants={fadeUp} className="mb-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+                    <motion.h2 variants={fadeUp} className="mb-3 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
                         Vos données, protégées
                     </motion.h2>
-                    <motion.p variants={fadeUp} className="mx-auto max-w-xl text-sm text-slate-400">
+                    <motion.p variants={fadeUp} className="mx-auto max-w-xl text-sm text-gray-600 dark:text-slate-400">
                         Floticar est conçu avec les meilleurs standards de sécurité du secteur SaaS.
                     </motion.p>
                 </div>
@@ -32,9 +32,9 @@ export default function SecuritySection() {
                             key={text}
                             variants={fadeUp}
                             whileHover={{ borderColor: "rgba(59,130,246,0.3)", backgroundColor: "rgba(59,130,246,0.04)" }}
-                            className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-4 py-3.5 text-left text-sm text-slate-300 transition-all duration-200"
+                            className="flex items-center gap-3 rounded-xl border border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.02] shadow-sm dark:shadow-none px-4 py-3.5 text-left text-sm text-gray-700 dark:text-slate-300 transition-all duration-200"
                         >
-                            <Icon size={15} className="shrink-0 text-blue-400" />
+                            <Icon size={15} className="shrink-0 text-blue-600 dark:text-blue-400" />
                             {text}
                         </motion.div>
                     ))}
