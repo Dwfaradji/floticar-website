@@ -3,12 +3,14 @@
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
+import Section from "../ui/Section";
+import Badge from "../ui/Badge";
 
 export default function FinalCTA() {
     const router = useRouter();
 
     return (
-        <section aria-label="Demande de démo Floticar" className="relative overflow-hidden px-6 py-36 text-center">
+        <Section ariaLabel="Demande de démo Floticar" className="relative overflow-hidden !py-36 text-center" maxWidth="max-w-2xl">
             {/* Background glow */}
             <div
                 aria-hidden
@@ -21,29 +23,15 @@ export default function FinalCTA() {
                 style={{ background: "radial-gradient(ellipse 40% 40% at 50% 100%, rgba(99,179,237,0.12) 0%, transparent 60%)" }}
             />
 
-            <motion.div
-                initial={{ opacity: 0, y: 32 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="mx-auto max-w-2xl"
-            >
-                <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
-                    className="mb-6 flex justify-center"
-                >
-                    <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 dark:border-blue-400/20 bg-blue-50 dark:bg-blue-900/30 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-700 dark:text-blue-300">
-                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-blue-500 dark:bg-blue-400" />
-                        Sans engagement · Démo gratuite
-                    </span>
-                </motion.div>
+            <div className="mx-auto">
+                <Badge className="!mb-6 border-blue-200 bg-blue-50 text-blue-700 dark:border-blue-400/20 dark:bg-blue-900/30 dark:text-blue-300">
+                    <span className="mr-2 h-1.5 w-1.5 animate-pulse rounded-full bg-blue-500 dark:bg-blue-400" />
+                    Sans engagement · Démo gratuite
+                </Badge>
 
-                <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+                <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl dark:text-white">
                     Prêt à optimiser{" "}
-                    <span className="bg-gradient-to-r from-blue-600 dark:from-blue-400 to-cyan-500 dark:to-cyan-400 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent dark:from-blue-400 dark:to-cyan-400">
                         votre flotte ?
                     </span>
                 </h2>
@@ -70,7 +58,7 @@ export default function FinalCTA() {
                         onClick={() => router.push("/contact")}
                         whileHover={{ scale: 1.04, y: -2 }}
                         whileTap={{ scale: 0.97 }}
-                        className="rounded-2xl border border-gray-200 dark:border-white/10 bg-white/80 dark:bg-white/5 px-8 py-4 text-base font-semibold text-gray-700 dark:text-white backdrop-blur-sm transition hover:border-gray-300 dark:hover:border-white/20 hover:bg-gray-50 dark:hover:bg-white/10 shadow-sm dark:shadow-none"
+                        className="rounded-2xl border border-gray-200 bg-white/80 px-8 py-4 text-base font-semibold text-gray-700 shadow-sm backdrop-blur-sm transition hover:border-gray-300 hover:bg-gray-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/10"
                     >
                         Nous contacter
                     </motion.button>
@@ -79,7 +67,7 @@ export default function FinalCTA() {
                 <p className="mt-8 text-xs text-gray-500 dark:text-slate-500">
                     Sans engagement · Réponse sous 24h · Données sécurisées
                 </p>
-            </motion.div>
-        </section>
+            </div>
+        </Section>
     );
 }

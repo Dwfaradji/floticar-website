@@ -28,6 +28,8 @@ const FEATURES = [
     },
 ];
 
+import Badge from "@/components/ui/Badge";
+
 export default function DemoRequestPage() {
     const [form, setForm] = useState({
         name: "",
@@ -37,7 +39,6 @@ export default function DemoRequestPage() {
         message: ""
     });
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-    const [focused, setFocused] = useState<string | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -61,8 +62,6 @@ export default function DemoRequestPage() {
         }
     };
 
-    const inputBase = "w-full rounded-xl border bg-white px-4 py-3 text-sm text-gray-800 placeholder-gray-400 outline-none transition-all duration-200 dark:bg-gray-900/50 dark:text-gray-100 dark:border-gray-800";
-
     return (
         <main className="min-h-screen pt-24 pb-20">
             <div className="mx-auto max-w-6xl px-6">
@@ -74,10 +73,12 @@ export default function DemoRequestPage() {
                         animate="show"
                         variants={{ show: { transition: { staggerChildren: 0.15 } } }}
                     >
-                        <motion.div variants={fadeUp} className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-600 dark:border-blue-900/30 dark:bg-blue-900/20 dark:text-blue-400">
-                            <Zap size={12} /> Réservez votre démo
+                        <motion.div variants={fadeUp}>
+                            <Badge className="!mb-6 border-blue-100 bg-blue-50 text-blue-600 dark:border-blue-900/30 dark:bg-blue-900/20 dark:text-blue-400">
+                                <Zap size={12} className="mr-2" /> Réservez votre démo
+                            </Badge>
                         </motion.div>
-                        <motion.h1 variants={fadeUp} className="mb-6 text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
+                        <motion.h1 variants={fadeUp} className="text-foreground mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
                             Prêt à transformer votre <span className="text-blue-600 dark:text-blue-400">gestion de flotte</span> ?
                         </motion.h1>
                         <motion.p variants={fadeUp} className="mb-8 text-lg text-gray-500 dark:text-gray-400">
@@ -87,25 +88,25 @@ export default function DemoRequestPage() {
                         <div className="space-y-6">
                             {FEATURES.map((feature, i) => (
                                 <motion.div key={i} variants={fadeUp} className="flex gap-4">
-                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
+                                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
                                         <feature.icon size={20} />
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-foreground">{feature.title}</h3>
+                                        <h3 className="text-foreground font-semibold">{feature.title}</h3>
                                         <p className="text-sm text-gray-500 dark:text-gray-400">{feature.desc}</p>
                                     </div>
                                 </motion.div>
                             ))}
                         </div>
 
-                        <motion.div variants={fadeUp} className="mt-10 p-6 rounded-2xl border border-gray-100 bg-gray-50 dark:bg-gray-900/30 dark:border-gray-800">
+                        <motion.div variants={fadeUp} className="mt-10 rounded-2xl border border-gray-100 bg-gray-50 p-6 dark:border-gray-800 dark:bg-gray-900/30">
                             <div className="flex items-center gap-4">
                                 <div className="flex -space-x-2">
                                     {[1, 2, 3].map(i => (
                                         <div key={i} className="h-8 w-8 rounded-full border-2 border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-800" />
                                     ))}
                                 </div>
-                                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
+                                <p className="text-sm font-medium text-gray-500 dark:text-gray-400">
                                     Rejoignez <span className="text-foreground font-bold">50+ entreprises</span> qui font confiance à Floticar.
                                 </p>
                             </div>
@@ -122,7 +123,7 @@ export default function DemoRequestPage() {
                             {/* Decorative backgrounds */}
                             <div className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-tr from-blue-100/40 to-emerald-100/40 blur-2xl dark:from-blue-900/20 dark:to-emerald-900/20" />
 
-                            <div className="rounded-3xl border border-gray-100 bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm p-8 shadow-2xl dark:shadow-none dark:border-gray-800">
+                            <div className="rounded-3xl border border-gray-100 bg-white/80 p-8 shadow-2xl backdrop-blur-sm dark:border-gray-800 dark:bg-gray-950/80 dark:shadow-none">
                                 <AnimatePresence mode="wait">
                                     {status === "success" ? (
                                         <motion.div
@@ -134,7 +135,7 @@ export default function DemoRequestPage() {
                                             <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400">
                                                 <CheckCircle size={40} />
                                             </div>
-                                            <h2 className="mb-3 text-2xl font-bold text-foreground">Demande reçue !</h2>
+                                            <h2 className="text-foreground mb-3 text-2xl font-bold">Demande reçue !</h2>
                                             <p className="mb-8 text-gray-500 dark:text-gray-400">
                                                 Merci pour votre confiance. Notre équipe vous contactera dans les plus brefs délais pour fixer un créneau.
                                             </p>
@@ -149,49 +150,45 @@ export default function DemoRequestPage() {
                                         <form onSubmit={handleSubmit} className="space-y-4">
                                             <div className="grid gap-4 sm:grid-cols-2">
                                                 <div>
-                                                    <label htmlFor="name" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Nom complet</label>
+                                                    <label htmlFor="name" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">Nom complet</label>
                                                     <input
                                                         id="name"
                                                         type="text" name="name" required placeholder="Jean Dupont"
                                                         autoComplete="name"
                                                         value={form.name} onChange={handleChange}
-                                                        onFocus={() => setFocused("name")} onBlur={() => setFocused(null)}
-                                                        className={`${inputBase} ${focused === "name" ? "border-blue-500 ring-2 ring-blue-500/10 dark:ring-blue-900/30" : "hover:border-gray-300 dark:hover:border-gray-700"}`}
+                                                        className="input-field focus:input-field-focus"
                                                     />
                                                 </div>
                                                 <div>
-                                                    <label htmlFor="email" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Email pro</label>
+                                                    <label htmlFor="email" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">Email pro</label>
                                                     <input
                                                         id="email"
                                                         type="email" name="email" required placeholder="jean@entreprise.com"
                                                         autoComplete="email"
                                                         value={form.email} onChange={handleChange}
-                                                        onFocus={() => setFocused("email")} onBlur={() => setFocused(null)}
-                                                        className={`${inputBase} ${focused === "email" ? "border-blue-500 ring-2 ring-blue-500/10 dark:ring-blue-900/30" : "hover:border-gray-300 dark:hover:border-gray-700"}`}
+                                                        className="input-field focus:input-field-focus"
                                                     />
                                                 </div>
                                             </div>
 
                                             <div className="grid gap-4 sm:grid-cols-2">
                                                 <div>
-                                                    <label htmlFor="company" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Entreprise</label>
+                                                    <label htmlFor="company" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">Entreprise</label>
                                                     <input
                                                         id="company"
                                                         type="text" name="company" required placeholder="Ex: Floticar SAS"
                                                         autoComplete="organization"
                                                         value={form.company} onChange={handleChange}
-                                                        onFocus={() => setFocused("company")} onBlur={() => setFocused(null)}
-                                                        className={`${inputBase} ${focused === "company" ? "border-blue-500 ring-2 ring-blue-500/10 dark:ring-blue-900/30" : "hover:border-gray-300 dark:hover:border-gray-700"}`}
+                                                        className="input-field focus:input-field-focus"
                                                     />
                                                 </div>
                                                 <div>
-                                                    <label htmlFor="fleetSize" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Taille de flotte</label>
+                                                    <label htmlFor="fleetSize" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">Taille de flotte</label>
                                                     <select
                                                         id="fleetSize"
                                                         name="fleetSize" required
                                                         value={form.fleetSize} onChange={handleChange}
-                                                        onFocus={() => setFocused("fleetSize")} onBlur={() => setFocused(null)}
-                                                        className={`${inputBase} appearance-none ${focused === "fleetSize" ? "border-blue-500 ring-2 ring-blue-500/10 dark:ring-blue-900/30" : "hover:border-gray-300 dark:hover:border-gray-700"}`}
+                                                        className="input-field focus:input-field-focus appearance-none"
                                                     >
                                                         <option value="">Sélectionnez...</option>
                                                         <option value="1-10">1 - 10 véhicules</option>
@@ -203,13 +200,12 @@ export default function DemoRequestPage() {
                                             </div>
 
                                             <div>
-                                                <label htmlFor="message" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Votre besoin (optionnel)</label>
+                                                <label htmlFor="message" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">Votre besoin (optionnel)</label>
                                                 <textarea
                                                     id="message"
                                                     name="message" rows={3} placeholder="Dites-nous en plus sur vos attentes..."
                                                     value={form.message} onChange={handleChange}
-                                                    onFocus={() => setFocused("message")} onBlur={() => setFocused(null)}
-                                                    className={`${inputBase} resize-none ${focused === "message" ? "border-blue-500 ring-2 ring-blue-500/10 dark:ring-blue-900/30" : "hover:border-gray-300 dark:hover:border-gray-700"}`}
+                                                    className="input-field focus:input-field-focus resize-none"
                                                 />
                                             </div>
 

@@ -28,6 +28,17 @@
   /* gray-500 */
 }
 
+@layer base {
+  .input-field {
+    @apply w-full rounded-xl border bg-white dark:bg-gray-900/50 px-4 py-3.5 text-sm text-gray-800 dark:text-gray-100 placeholder-gray-400 outline-none transition-all duration-200;
+    @apply border-gray-200 hover:border-gray-300 dark:border-gray-800 dark:hover:border-gray-700;
+  }
+
+  .input-field-focus {
+    @apply border-blue-400 ring-2 ring-blue-100 dark:ring-blue-900/30;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

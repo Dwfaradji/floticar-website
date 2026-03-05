@@ -130,8 +130,8 @@ export default function RootLayout({
           {/* Global Background Elements */}
           <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
             {/* Ambient glows */}
-            <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/4 rounded-full bg-blue-600/10 blur-[120px] dark:bg-blue-600/15" />
-            <div className="absolute left-1/4 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-cyan-500/5 blur-[100px] dark:bg-cyan-500/10" />
+            <div className="absolute top-0 left-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/4 rounded-full bg-blue-600/10 blur-[120px] dark:bg-blue-600/15" />
+            <div className="absolute top-1/2 left-1/4 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-cyan-500/5 blur-[100px] dark:bg-cyan-500/10" />
 
             {/* Grid overlay */}
             <div className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_70%_80%_at_50%_0%,black,transparent)]" />

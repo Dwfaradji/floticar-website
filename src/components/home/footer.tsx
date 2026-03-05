@@ -4,8 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Shield, FileText, Phone } from "lucide-react";
-import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
 
 const FOOTER_LINKS = [
   { label: "Confidentialité", href: "/privacy", icon: Shield },
@@ -14,16 +12,9 @@ const FOOTER_LINKS = [
 ];
 
 export default function Footer() {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  // No longer needed: resolvedTheme, mounted, useEffect
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const logoSrc = mounted && resolvedTheme === "dark"
-    ? "/images/logo-dark-transparent.png"
-    : "/images/logo-light-transparent.png";
+  // No JS logic needed for logos anymore
 
   return (
     <motion.footer
@@ -31,7 +22,7 @@ export default function Footer() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="w-full border-t border-gray-200/80 dark:border-gray-800/80 bg-gradient-to-b from-white dark:from-[#05070f] to-gray-50 dark:to-transparent"
+      className="w-full border-t border-gray-200/80 bg-gradient-to-b from-white to-gray-50 dark:border-gray-800/80 dark:from-[#05070f] dark:to-transparent"
     >
       <div className="mx-auto max-w-6xl px-6 py-12">
         {/* Top row */}
@@ -45,15 +36,23 @@ export default function Footer() {
             >
               <div className="relative h-8 w-8">
                 <Image
-                  src={logoSrc}
+                  src="/images/logo-light-transparent.png"
                   alt=""
                   role="presentation"
                   fill
                   priority
-                  className="object-contain"
+                  className="object-contain dark:hidden"
+                />
+                <Image
+                  src="/images/logo-dark-transparent.png"
+                  alt=""
+                  role="presentation"
+                  fill
+                  priority
+                  className="hidden object-contain dark:block"
                 />
               </div>
-              <span className="bg-gradient-to-r from-blue-700 dark:from-blue-500 to-blue-500 dark:to-blue-400 bg-clip-text text-lg font-bold tracking-tight text-transparent">
+              <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-lg font-bold tracking-tight text-transparent dark:from-blue-500 dark:to-blue-400">
                 Floticar
               </span>
             </Link>
@@ -68,7 +67,7 @@ export default function Footer() {
               <Link
                 key={href}
                 href={href}
-                className="flex items-center gap-1.5 rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 px-3.5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm transition-all duration-200 hover:border-blue-200 dark:hover:border-blue-800 hover:bg-blue-50 dark:hover:bg-blue-900/40 hover:text-blue-600 dark:hover:text-blue-400 hover:shadow-md"
+                className="flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3.5 py-2 text-sm font-medium text-gray-600 shadow-sm transition-all duration-200 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600 hover:shadow-md dark:border-gray-800 dark:bg-gray-900/50 dark:text-gray-400 dark:hover:border-blue-800 dark:hover:bg-blue-900/40 dark:hover:text-blue-400"
               >
                 <Icon size={14} />
                 {label}
@@ -78,14 +77,14 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="my-8 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-800 to-transparent" />
+        <div className="my-8 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent dark:via-gray-800" />
 
         {/* Bottom row */}
-        <div className="flex flex-col items-center justify-between gap-3 text-sm text-gray-400 dark:text-gray-500 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-3 text-sm text-gray-400 md:flex-row dark:text-gray-500">
           <p>
             © {new Date().getFullYear()}{" "}
             <span className="font-semibold text-gray-600 dark:text-gray-400">Floticar</span> — une solution{" "}
-            <a href="https://devevoke.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300 transition">Devevoke</a>
+            <a href="https://devevoke.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-gray-600 transition hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300">Devevoke</a>
           </p>
           <a
             href="mailto:support@floticar.com"

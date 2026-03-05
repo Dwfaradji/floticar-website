@@ -5,9 +5,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { useTheme } from "next-themes";
 
 const NAV_LINKS = [
   { label: "Accueil", href: "/" },
@@ -22,19 +21,17 @@ export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  // No longer needed: resolvedTheme, mounted
 
-  React.useEffect(() => {
-    setMounted(true);
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
-  const logoSrc = mounted && resolvedTheme === "dark"
-    ? "/images/logo-dark-transparent.png"
-    : "/images/logo-light-transparent.png";
+  // No JS logic needed for logos anymore
 
   return (
     <motion.header
@@ -55,11 +52,19 @@ export default function Header() {
         >
           <div className="relative h-8 w-8">
             <Image
-              src={logoSrc}
+              src="/images/logo-light-transparent.png"
               alt=""
               role="presentation"
               fill
-              className="object-contain transition group-hover:opacity-90"
+              className="object-contain transition group-hover:opacity-90 dark:hidden"
+              priority
+            />
+            <Image
+              src="/images/logo-dark-transparent.png"
+              alt=""
+              role="presentation"
+              fill
+              className="hidden object-contain transition group-hover:opacity-90 dark:block"
               priority
             />
           </div>
@@ -91,7 +96,7 @@ export default function Header() {
               </Link>
             );
           })}
-          <div className="ml-2 pl-2 border-l border-gray-200 dark:border-gray-800">
+          <div className="ml-2 border-l border-gray-200 pl-2 dark:border-gray-800">
             <ThemeToggle />
           </div>
         </nav>
@@ -127,7 +132,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-gray-100 bg-white/95 backdrop-blur-md dark:border-gray-800 dark:bg-gray-950/95 md:hidden"
+            className="overflow-hidden border-t border-gray-100 bg-white/95 backdrop-blur-md md:hidden dark:border-gray-800 dark:bg-gray-950/95"
           >
             <nav
               className="flex flex-col gap-1 px-6 py-4"

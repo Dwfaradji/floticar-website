@@ -1,18 +1,51 @@
-import { defineConfig, globalIgnores } from "eslint/config";
+import { defineConfig } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import tailwind from "eslint-plugin-better-tailwindcss";
 
-const eslintConfig = defineConfig([
+export default defineConfig([
+  // Configs Next.js officielles (NE PAS ignorer)
   ...nextVitals,
   ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
-]);
 
-export default eslintConfig;
+  {
+    plugins: {
+      tailwindcss: tailwind,
+    },
+
+    rules: {
+      /**
+       * Console
+       * 👉 console.log interdit, mais logs utiles autorisés
+       */
+      "no-console": [
+        "warn",
+        {
+          allow: ["warn", "error", "info"],
+        },
+      ],
+
+      /**
+       * Tailwind CSS
+       */
+      "tailwindcss/enforce-consistent-class-order": "warn",
+      "tailwindcss/no-conflicting-classes": "error",
+
+      // ON garde off seulement celle-ci si tu utilises des classes dynamiques
+      "tailwindcss/no-unknown-classes": "off",
+    },
+
+    settings: {
+      tailwindcss: {
+        entryPoint: "src/app/globals.css",
+      },
+    },
+  },
+
+  /**
+   * Ignorer UNIQUEMENT les artefacts générés
+   */
+  {
+    ignores: [".next/**", "out/**", "build/**", "dist/**", "node_modules/**", "next-env.d.ts"],
+  },
+]);
