@@ -29,9 +29,9 @@ export function ThemeToggle() {
                 <motion.div
                     initial={false}
                     animate={{
-                        scale: theme === "dark" ? 0 : 1,
-                        rotate: theme === "dark" ? 45 : 0,
-                        opacity: theme === "dark" ? 0 : 1,
+                        scale: theme === "dark" ? 1 : 0,
+                        rotate: theme === "dark" ? 0 : -45,
+                        opacity: theme === "dark" ? 1 : 0,
                     }}
                     transition={{ duration: 0.2 }}
                     className="absolute"
@@ -41,9 +41,9 @@ export function ThemeToggle() {
                 <motion.div
                     initial={false}
                     animate={{
-                        scale: theme === "dark" ? 1 : 0,
-                        rotate: theme === "dark" ? 0 : -45,
-                        opacity: theme === "dark" ? 1 : 0,
+                        scale: theme === "dark" ? 0 : 1,
+                        rotate: theme === "dark" ? 45 : 0,
+                        opacity: theme === "dark" ? 0 : 1,
                     }}
                     transition={{ duration: 0.2 }}
                     className="absolute"
@@ -53,7 +53,7 @@ export function ThemeToggle() {
             </div>
 
             <span className="shrink-0 transition-colors">
-                {theme === "dark" ? "Mode Sombre" : "Mode Clair"}
+                {theme === "dark" ? "Mode Clair" : "Mode Sombre"}
             </span>
         </button>
     );

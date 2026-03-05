@@ -11,11 +11,21 @@
 }
 
 .dark {
-  --background: #05070f;
+  --background: #030409;
   --foreground: #ededed;
-  --header-bg: rgba(5, 7, 15, 0.6);
+  --header-bg: rgba(3, 4, 9, 0.7);
   --header-border: rgba(31, 41, 55, 0.6);
-  --grid-color: rgba(255, 255, 255, 0.03);
+  --grid-color: rgba(255, 255, 255, 0.02);
+}
+
+::placeholder {
+  color: #94a3b8;
+  /* gray-400 */
+}
+
+.dark ::placeholder {
+  color: #64748b;
+  /* gray-500 */
 }
 
 @theme inline {

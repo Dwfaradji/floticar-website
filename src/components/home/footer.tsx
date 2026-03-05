@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Shield, FileText, Phone } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 
 const FOOTER_LINKS = [
   { label: "Confidentialité", href: "/privacy", icon: Shield },
@@ -12,6 +14,17 @@ const FOOTER_LINKS = [
 ];
 
 export default function Footer() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const logoSrc = mounted && resolvedTheme === "dark"
+    ? "/images/logo-dark-transparent.png"
+    : "/images/logo-light-transparent.png";
+
   return (
     <motion.footer
       initial={{ opacity: 0 }}
@@ -25,21 +38,19 @@ export default function Footer() {
         <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           {/* Brand */}
           <div className="flex flex-col gap-3">
-            <Link href="/" className="group flex items-center gap-2.5">
+            <Link
+              href="/"
+              className="group flex items-center gap-2.5"
+              aria-label="Retour à l'accueil Floticar"
+            >
               <div className="relative h-8 w-8">
                 <Image
-                  src="/images/logo-light-transparent.png"
-                  alt="Floticar"
+                  src={logoSrc}
+                  alt=""
+                  role="presentation"
                   fill
                   priority
-                  className="object-contain dark:hidden"
-                />
-                <Image
-                  src="/images/logo-dark-transparent.png"
-                  alt="Floticar"
-                  fill
-                  priority
-                  className="hidden object-contain dark:block"
+                  className="object-contain"
                 />
               </div>
               <span className="bg-gradient-to-r from-blue-700 dark:from-blue-500 to-blue-500 dark:to-blue-400 bg-clip-text text-lg font-bold tracking-tight text-transparent">
@@ -52,7 +63,7 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <nav className="flex flex-wrap gap-2">
+          <nav className="flex flex-wrap gap-2" aria-label="Liens utiles du pied de page">
             {FOOTER_LINKS.map(({ label, href, icon: Icon }) => (
               <Link
                 key={href}
@@ -74,12 +85,13 @@ export default function Footer() {
           <p>
             © {new Date().getFullYear()}{" "}
             <span className="font-semibold text-gray-600 dark:text-gray-400">Floticar</span> — une solution{" "}
-            <a href="https://devevoke.com" target="_blank" className="font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300 transition">Devevoke</a>
+            <a href="https://devevoke.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-300 transition">Devevoke</a>
           </p>
           <a
             href="mailto:support@floticar.com"
             className="flex items-center gap-1.5 transition hover:text-blue-600 dark:hover:text-blue-400"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <Mail size={13} />
             support@floticar.com

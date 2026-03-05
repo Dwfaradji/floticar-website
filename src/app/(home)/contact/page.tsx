@@ -139,13 +139,15 @@ export default function ContactPage() {
                 <h2 className="mb-6 text-xl font-bold text-foreground">Envoyez-nous un message</h2>
                 <div className="space-y-4">
                   {[
-                    { name: "name", type: "text", label: "Votre nom", placeholder: "Jean Dupont" },
-                    { name: "email", type: "email", label: "Email professionnel", placeholder: "jean@entreprise.com" },
-                  ].map(({ name, type, label, placeholder }) => (
+                    { name: "name", type: "text", label: "Votre nom", placeholder: "Jean Dupont", autoComplete: "name" },
+                    { name: "email", type: "email", label: "Email professionnel", placeholder: "jean@entreprise.com", autoComplete: "email" },
+                  ].map(({ name, type, label, placeholder, autoComplete }) => (
                     <div key={name}>
-                      <label className="mb-1.5 block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">{label}</label>
+                      <label htmlFor={name} className="mb-1.5 block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">{label}</label>
                       <input
+                        id={name}
                         type={type} name={name} placeholder={placeholder}
+                        autoComplete={autoComplete}
                         value={form[name as keyof typeof form]} onChange={handleChange}
                         onFocus={() => setFocused(name)} onBlur={() => setFocused(null)}
                         required
@@ -154,8 +156,9 @@ export default function ContactPage() {
                     </div>
                   ))}
                   <div>
-                    <label className="mb-1.5 block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Votre message</label>
+                    <label htmlFor="message" className="mb-1.5 block text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Votre message</label>
                     <textarea
+                      id="message"
                       name="message" placeholder="Décrivez votre flotte ou votre besoin..."
                       value={form.message} onChange={handleChange}
                       onFocus={() => setFocused("message")} onBlur={() => setFocused(null)}

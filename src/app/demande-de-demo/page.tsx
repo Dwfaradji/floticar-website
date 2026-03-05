@@ -149,18 +149,22 @@ export default function DemoRequestPage() {
                                         <form onSubmit={handleSubmit} className="space-y-4">
                                             <div className="grid gap-4 sm:grid-cols-2">
                                                 <div>
-                                                    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Nom complet</label>
+                                                    <label htmlFor="name" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Nom complet</label>
                                                     <input
+                                                        id="name"
                                                         type="text" name="name" required placeholder="Jean Dupont"
+                                                        autoComplete="name"
                                                         value={form.name} onChange={handleChange}
                                                         onFocus={() => setFocused("name")} onBlur={() => setFocused(null)}
                                                         className={`${inputBase} ${focused === "name" ? "border-blue-500 ring-2 ring-blue-500/10 dark:ring-blue-900/30" : "hover:border-gray-300 dark:hover:border-gray-700"}`}
                                                     />
                                                 </div>
                                                 <div>
-                                                    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Email pro</label>
+                                                    <label htmlFor="email" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Email pro</label>
                                                     <input
+                                                        id="email"
                                                         type="email" name="email" required placeholder="jean@entreprise.com"
+                                                        autoComplete="email"
                                                         value={form.email} onChange={handleChange}
                                                         onFocus={() => setFocused("email")} onBlur={() => setFocused(null)}
                                                         className={`${inputBase} ${focused === "email" ? "border-blue-500 ring-2 ring-blue-500/10 dark:ring-blue-900/30" : "hover:border-gray-300 dark:hover:border-gray-700"}`}
@@ -170,17 +174,20 @@ export default function DemoRequestPage() {
 
                                             <div className="grid gap-4 sm:grid-cols-2">
                                                 <div>
-                                                    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Entreprise</label>
+                                                    <label htmlFor="company" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Entreprise</label>
                                                     <input
+                                                        id="company"
                                                         type="text" name="company" required placeholder="Ex: Floticar SAS"
+                                                        autoComplete="organization"
                                                         value={form.company} onChange={handleChange}
                                                         onFocus={() => setFocused("company")} onBlur={() => setFocused(null)}
                                                         className={`${inputBase} ${focused === "company" ? "border-blue-500 ring-2 ring-blue-500/10 dark:ring-blue-900/30" : "hover:border-gray-300 dark:hover:border-gray-700"}`}
                                                     />
                                                 </div>
                                                 <div>
-                                                    <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Taille de flotte</label>
+                                                    <label htmlFor="fleetSize" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Taille de flotte</label>
                                                     <select
+                                                        id="fleetSize"
                                                         name="fleetSize" required
                                                         value={form.fleetSize} onChange={handleChange}
                                                         onFocus={() => setFocused("fleetSize")} onBlur={() => setFocused(null)}
@@ -196,8 +203,9 @@ export default function DemoRequestPage() {
                                             </div>
 
                                             <div>
-                                                <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Votre besoin (optionnel)</label>
+                                                <label htmlFor="message" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Votre besoin (optionnel)</label>
                                                 <textarea
+                                                    id="message"
                                                     name="message" rows={3} placeholder="Dites-nous en plus sur vos attentes..."
                                                     value={form.message} onChange={handleChange}
                                                     onFocus={() => setFocused("message")} onBlur={() => setFocused(null)}

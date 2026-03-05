@@ -6,9 +6,21 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/animations";
 import { TRUST_SIGNALS } from "@/lib/constants/landing";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 
 export default function HeroSection() {
     const router = useRouter();
+    const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    const logoSrc = mounted && resolvedTheme === "dark"
+        ? "/images/logo-dark-transparent.png"
+        : "/images/logo-light-transparent.png";
 
     return (
         <section
@@ -37,26 +49,14 @@ export default function HeroSection() {
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
                         className="relative h-50 w-50 drop-shadow-2xl md:h-80 md:w-80"
                     >
-                        {/* Light Mode Logo */}
-                        <div className="absolute inset-0 block dark:hidden">
-                            <Image
-                                src="/images/logo-light-transparent.png"
-                                alt="Floticar"
-                                fill
-                                className="object-contain drop-shadow-sm"
-                                priority
-                            />
-                        </div>
-                        {/* Dark Mode Logo */}
-                        <div className="absolute inset-0 hidden dark:block">
-                            <Image
-                                src="/images/logo-dark-transparent.png"
-                                alt="Floticar"
-                                fill
-                                className="object-contain drop-shadow-sm"
-                                priority
-                            />
-                        </div>
+                        <Image
+                            src={logoSrc}
+                            alt=""
+                            role="presentation"
+                            fill
+                            className="object-contain drop-shadow-sm"
+                            priority
+                        />
                     </motion.div>
                 </motion.div>
 
@@ -149,7 +149,7 @@ export default function HeroSection() {
                                 app.floticar.com/dashboard
                             </div>
                         </div>
-                        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-white dark:from-[#05070f] to-transparent" />
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-[var(--background)] to-transparent" />
                         <Image
                             src="/images/dashboard-preview.png"
                             alt="Tableau de bord Floticar — interface de gestion de flotte"

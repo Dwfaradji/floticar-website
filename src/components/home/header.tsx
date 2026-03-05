@@ -5,8 +5,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useTheme } from "next-themes";
 
 const NAV_LINKS = [
   { label: "Accueil", href: "/" },
@@ -21,12 +22,19 @@ export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
+    setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const logoSrc = mounted && resolvedTheme === "dark"
+    ? "/images/logo-dark-transparent.png"
+    : "/images/logo-light-transparent.png";
 
   return (
     <motion.header
@@ -40,28 +48,20 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         {/* Logo */}
-        <Link href="/" className="group flex items-center gap-2.5 transition">
+        <Link
+          href="/"
+          className="group flex items-center gap-2.5 transition"
+          aria-label="Retour à l'accueil Floticar"
+        >
           <div className="relative h-8 w-8">
-            {/* Light Mode Logo */}
-            <div className="absolute inset-0 block dark:hidden">
-              <Image
-                src="/images/logo-light-transparent.png"
-                alt="Floticar Logo"
-                fill
-                className="object-contain transition group-hover:opacity-90"
-                priority
-              />
-            </div>
-            {/* Dark Mode Logo */}
-            <div className="absolute inset-0 hidden dark:block">
-              <Image
-                src="/images/logo-dark-transparent.png"
-                alt="Floticar Logo"
-                fill
-                className="object-contain transition group-hover:opacity-90"
-                priority
-              />
-            </div>
+            <Image
+              src={logoSrc}
+              alt=""
+              role="presentation"
+              fill
+              className="object-contain transition group-hover:opacity-90"
+              priority
+            />
           </div>
           <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-xl font-bold tracking-tight text-transparent transition group-hover:opacity-90 dark:from-blue-500 dark:to-blue-400">
             Floticar
@@ -129,7 +129,10 @@ export default function Header() {
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="overflow-hidden border-t border-gray-100 bg-white/95 backdrop-blur-md dark:border-gray-800 dark:bg-gray-950/95 md:hidden"
           >
-            <nav className="flex flex-col gap-1 px-6 py-4">
+            <nav
+              className="flex flex-col gap-1 px-6 py-4"
+              aria-label="Menu de navigation mobile"
+            >
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
                 return (

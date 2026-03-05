@@ -13,7 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Floticar — Logiciel de Gestion de Flotte Automobile pour PME",
+  metadataBase: new URL("https://floticar.com"),
+  title: {
+    default: "Floticar — Logiciel de Gestion de Flotte Automobile pour PME",
+    template: "%s | Floticar",
+  },
   description:
     "Floticar simplifie la gestion de flotte : véhicules, conducteurs, entretiens, dépenses et rapports en temps réel. Solution SaaS multi-tenant sécurisée, déployée rapidement.",
   keywords: [
@@ -27,19 +31,25 @@ export const metadata: Metadata = {
     "gestion carburant",
     "tableau de bord flotte",
   ],
-  authors: [{ name: "Floticar", url: "https://floticar.app" }],
+  authors: [{ name: "Floticar Team", url: "https://floticar.com" }],
   creator: "Floticar",
+  publisher: "Floticar",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://floticar.app",
+    url: "https://floticar.com",
     siteName: "Floticar",
     title: "Floticar — Logiciel de Gestion de Flotte Automobile",
     description:
       "Centralisez la gestion de vos véhicules, conducteurs et entretiens dans une seule plateforme moderne, sécurisée et accessible partout.",
     images: [
       {
-        url: "https://floticar.app/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Floticar — Dashboard de gestion de flotte",
@@ -50,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Floticar — Logiciel de Gestion de Flotte",
     description: "Gérez votre flotte en temps réel. Véhicules, conducteurs, entretiens, dépenses.",
-    images: ["https://floticar.app/og-image.png"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -64,7 +74,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://floticar.app",
+    canonical: "https://floticar.com",
   },
   icons: {
     icon: [
@@ -97,8 +107,8 @@ const jsonLd = {
   },
   description:
     "Logiciel de gestion de flotte automobile pour PME. Suivi véhicules, conducteurs, entretiens, dépenses et rapports en temps réel.",
-  url: "https://floticar.app",
-  logo: "https://floticar.app/logo.png",
+  url: "https://floticar.com",
+  logo: "https://floticar.com/logo.png",
 };
 
 export default function RootLayout({
