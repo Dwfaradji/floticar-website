@@ -91,6 +91,7 @@ export const metadata: Metadata = {
 import Header from "@/components/home/header";
 import Footer from "@/components/home/footer";
 import { Providers } from "@/components/Providers";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const jsonLd = {
   // ... (keep existing)
@@ -141,6 +142,9 @@ export default function RootLayout({
           {children}
           <Footer />
         </Providers>
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );

@@ -4,38 +4,50 @@ import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/animations";
 import { PAINS } from "@/lib/constants/landing";
 import Section from "../ui/Section";
-import SectionHeader from "../ui/SectionHeader";
+import { AlertCircle } from "lucide-react";
 
 export default function ProblemSection() {
     return (
-        <Section ariaLabel="Problèmes courants de gestion de flotte">
-            <SectionHeader
-                badge="Le problème"
-                title={
-                    <>
-                        Les entreprises perdent du temps{" "}
-                        <span className="text-gray-500 dark:text-slate-500">et de l&apos;argent</span>
-                    </>
-                }
-                description="Sans outil dédié, la gestion d'une flotte génère des coûts cachés et une charge administrative considérable."
-            />
-
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                {PAINS.map(({ icon: Icon, title, desc }) => (
-                    <motion.div
-                        key={title}
-                        variants={fadeUp}
-                        whileHover={{ y: -4, borderColor: "rgba(239,68,68,0.3)" }}
-                        className="group rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 dark:border-white/5 dark:bg-white/[0.02] dark:shadow-none"
-                    >
-                        <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-red-100 text-red-600 ring-1 ring-red-200 transition group-hover:bg-red-200 dark:bg-red-500/10 dark:text-red-400 dark:ring-red-500/10 dark:group-hover:bg-red-500/15">
-                            <Icon size={22} />
+        <section className="relative overflow-hidden bg-gray-900 py-32 dark:bg-[#030409]">
+            {/* Dark background, extremely premium feel */}
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800 dark:from-[#030409] dark:to-[#0a0a0a]" />
+            
+            <div className="mx-auto max-w-7xl px-6 relative z-10">
+                <div className="mb-20 flex flex-col items-center text-center max-w-3xl mx-auto">
+                    <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                        <div className="inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-3 py-1 text-sm font-medium text-red-400 mb-6">
+                            <AlertCircle size={14} />
+                            Le constat
                         </div>
-                        <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">{title}</h3>
-                        <p className="text-sm leading-relaxed text-gray-600 dark:text-slate-500">{desc}</p>
+                        <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
+                            Gérer une flotte ne devrait pas être un gouffre financier.
+                        </h2>
+                        <p className="text-lg text-gray-400">
+                            Sans outil centralisé, l'information se perd. Les entretiens sont oubliés, les coûts de carburant s'envolent, et la charge mentale de votre équipe explose.
+                        </p>
                     </motion.div>
-                ))}
+                </div>
+
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    {PAINS.map(({ icon: Icon, title, desc }, i) => (
+                        <motion.div
+                            key={title}
+                            variants={fadeUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className="group relative overflow-hidden rounded-[2rem] border border-white/5 bg-white/5 p-8 backdrop-blur-md transition-all duration-500 hover:border-red-500/30 hover:bg-white/10"
+                        >
+                            <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-red-500/10 text-red-400 ring-1 ring-red-500/20 transition-transform duration-500 group-hover:scale-110">
+                                <Icon size={24} strokeWidth={1.5} />
+                            </div>
+                            <h3 className="mb-3 text-xl font-bold tracking-tight text-white">{title}</h3>
+                            <p className="text-sm leading-relaxed text-gray-400 group-hover:text-gray-300 transition-colors">{desc}</p>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
-        </Section>
+        </section>
     );
 }

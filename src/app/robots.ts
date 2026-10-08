@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: ['/_next/', '/api/'],
         },
-        sitemap: 'https://floticar.app/sitemap.xml',
+        sitemap: 'https://floticar.com/sitemap.xml',
     }
 }

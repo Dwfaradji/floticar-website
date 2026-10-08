@@ -3,10 +3,12 @@ import StatsSection from "@/components/sections/StatsSection";
 import ProblemSection from "@/components/sections/ProblemSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import BenefitsSection from "@/components/sections/BenefitsSection";
+import ShowcaseSection from "@/components/sections/ShowcaseSection";
 import TargetSection from "@/components/sections/TargetSection";
 import SecuritySection from "@/components/sections/SecuritySection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
 import FinalCTA from "@/components/sections/FinalCTA";
+import HowItWorksSection from "@/components/sections/HowItWorksSection";
 
 export default function FleetLandingPage() {
   return (
@@ -15,6 +17,8 @@ export default function FleetLandingPage() {
       <StatsSection />
       <ProblemSection />
       <FeaturesSection />
+      <HowItWorksSection />
+      <ShowcaseSection />
       <BenefitsSection />
       <TargetSection />
       <SecuritySection />

@@ -1,73 +1,49 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
-import Section from "../ui/Section";
-import Badge from "../ui/Badge";
+import { fadeUp } from "@/lib/animations";
+import { useRouter } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 
 export default function FinalCTA() {
     const router = useRouter();
 
     return (
-        <Section ariaLabel="Demande de démo Floticar" className="relative overflow-hidden !py-36 text-center" maxWidth="max-w-2xl">
-            {/* Background glow */}
-            <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 -z-10"
-                style={{ background: "radial-gradient(ellipse 70% 90% at 50% 100%, rgba(59,130,246,0.18) 0%, transparent 70%)" }}
-            />
-            <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 -z-10"
-                style={{ background: "radial-gradient(ellipse 40% 40% at 50% 100%, rgba(99,179,237,0.12) 0%, transparent 60%)" }}
-            />
+        <section className="relative overflow-hidden py-40">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-50/50 dark:to-blue-900/10" />
+            
+            {/* Glowing background meshes */}
+            <div className="absolute left-1/2 top-1/2 -z-10 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-600/20 to-cyan-400/20 blur-[100px]" />
 
-            <div className="mx-auto">
-                <Badge className="!mb-6 border-blue-200 bg-blue-50 text-blue-700 dark:border-blue-400/20 dark:bg-blue-900/30 dark:text-blue-300">
-                    <span className="mr-2 h-1.5 w-1.5 animate-pulse rounded-full bg-blue-500 dark:bg-blue-400" />
-                    Sans engagement · Démo gratuite
-                </Badge>
-
-                <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl dark:text-white">
-                    Prêt à optimiser{" "}
-                    <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent dark:from-blue-400 dark:to-cyan-400">
-                        votre flotte ?
-                    </span>
-                </h2>
-                <p className="mb-12 text-lg text-gray-600 dark:text-slate-400">
-                    Contactez-nous pour une démonstration personnalisée. Nous vous répondons sous 24h.
-                </p>
-
-                <div className="flex flex-wrap items-center justify-center gap-4">
-                    <motion.button
-                        onClick={() => router.push("/demande-de-demo")}
-                        whileHover={{ scale: 1.05, y: -3 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="group relative flex items-center gap-2.5 overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 to-blue-500 px-10 py-4 text-base font-bold text-white shadow-2xl shadow-blue-900/50 transition"
-                        aria-label="Demander une démo Floticar"
-                    >
-                        <span className="relative z-10 flex items-center gap-2.5">
-                            Demander une démo
-                            <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
+            <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
+                <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                    <h2 className="mb-6 text-5xl font-bold tracking-tighter text-gray-900 sm:text-6xl md:text-7xl dark:text-white">
+                        Prêt à passer à la{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
+                            vitesse supérieure ?
                         </span>
-                        <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 transition-opacity group-hover:opacity-100" />
-                    </motion.button>
+                    </h2>
+                    <p className="mx-auto mb-12 max-w-2xl text-xl font-medium text-gray-500 dark:text-gray-400">
+                        Rejoignez les dizaines d'entreprises qui ont déjà optimisé leur gestion de flotte avec Floticar.
+                    </p>
 
-                    <motion.button
-                        onClick={() => router.push("/contact")}
-                        whileHover={{ scale: 1.04, y: -2 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="rounded-2xl border border-gray-200 bg-white/80 px-8 py-4 text-base font-semibold text-gray-700 shadow-sm backdrop-blur-sm transition hover:border-gray-300 hover:bg-gray-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:shadow-none dark:hover:border-white/20 dark:hover:bg-white/10"
-                    >
-                        Nous contacter
-                    </motion.button>
-                </div>
-
-                <p className="mt-8 text-xs text-gray-500 dark:text-slate-500">
-                    Sans engagement · Réponse sous 24h · Données sécurisées
-                </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button
+                            onClick={() => router.push("/demande-de-demo")}
+                            className="group relative flex h-14 w-full sm:w-auto items-center justify-center gap-2 overflow-hidden rounded-full bg-blue-600 px-10 text-base font-semibold text-white transition-all hover:scale-105 hover:bg-blue-700 hover:shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)]"
+                        >
+                            Créer mon espace
+                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </button>
+                        <button
+                            onClick={() => router.push("/contact")}
+                            className="flex h-14 w-full sm:w-auto items-center justify-center rounded-full border border-gray-200 bg-white px-10 text-base font-semibold text-gray-900 transition-all hover:bg-gray-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                        >
+                            Parler à un expert
+                        </button>
+                    </div>
+                </motion.div>
             </div>
-        </Section>
+        </section>
     );
 }

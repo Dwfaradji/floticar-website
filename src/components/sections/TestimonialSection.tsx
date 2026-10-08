@@ -1,43 +1,42 @@
 "use client";
 
 import { Star } from "lucide-react";
-import Section from "../ui/Section";
+import { motion } from "framer-motion";
 
 export default function TestimonialSection() {
     return (
-        <Section
-            ariaLabel="Témoignage client Floticar"
-            className="relative overflow-hidden bg-white/[0.02]"
-            maxWidth="max-w-3xl"
-        >
-            <div className="pointer-events-none absolute inset-0 -z-10">
-                <div className="absolute top-1/2 left-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/5 blur-[80px]" />
-            </div>
+        <section className="relative overflow-hidden bg-white dark:bg-[#030409] py-32">
+            <div className="absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/5 blur-[100px] pointer-events-none" />
 
-            <div className="text-center">
-                <div className="mb-6 flex justify-center gap-1">
-                    {Array.from({ length: 5 }, (_, i) => (
-                        <Star key={i} size={16} className="fill-amber-400 text-amber-400" />
-                    ))}
-                </div>
-
-                <blockquote className="mb-8 text-xl leading-relaxed font-medium text-gray-900 sm:text-2xl dark:text-white">
-                    &ldquo;Depuis que nous utilisons Floticar, nous avons réduit nos coûts de flotte de
-                    <span className="font-extrabold text-blue-600 dark:text-blue-300"> 18&nbsp;%</span> en six mois. La visibilité
-                    sur nos dépenses est incomparable.&rdquo;
-                </blockquote>
-
-                <div className="inline-flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-blue-500 text-sm font-bold text-white dark:from-blue-500 dark:to-blue-700">
-                        JD
+            <div className="mx-auto max-w-4xl px-6 relative z-10">
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="relative rounded-[3rem] border border-gray-200/50 bg-white/40 p-12 md:p-20 text-center shadow-[0_20px_60px_rgba(0,0,0,0.03)] backdrop-blur-2xl dark:border-white/10 dark:bg-white/[0.02] dark:shadow-[0_20px_60px_rgba(0,0,0,0.2)]"
+                >
+                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex gap-1 rounded-full border border-gray-200 bg-white px-4 py-2 shadow-sm dark:border-white/10 dark:bg-[#0a0a0a]">
+                        {Array.from({ length: 5 }, (_, i) => (
+                            <Star key={i} size={16} className="fill-amber-400 text-amber-400" />
+                        ))}
                     </div>
-                    <div className="text-left text-sm text-gray-600 dark:text-slate-400">
-                        <span className="font-semibold text-gray-900 dark:text-white">J. Dupont</span>
-                        <br />
-                        Responsable de flotte · PME de services (Île-de-France)
+
+                    <blockquote className="mb-10 text-2xl md:text-4xl leading-tight font-bold tracking-tight text-gray-900 dark:text-white">
+                        &ldquo;Floticar a radicalement transformé notre gestion quotidienne. Nos coûts de flotte ont chuté de <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">18% en six mois</span>, et la sérénité de l'équipe n'a pas de prix.&rdquo;
+                    </blockquote>
+
+                    <div className="flex flex-col items-center justify-center gap-4">
+                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-gray-900 to-gray-700 text-lg font-bold text-white shadow-lg dark:from-white dark:to-gray-300 dark:text-gray-900">
+                            JD
+                        </div>
+                        <div>
+                            <div className="font-bold text-gray-900 dark:text-white text-lg">Julien Dupont</div>
+                            <div className="text-sm font-medium text-gray-500 dark:text-gray-400">Directeur des Opérations · PME Île-de-France</div>
+                        </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
-        </Section>
+        </section>
     );
 }

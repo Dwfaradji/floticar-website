@@ -1,7 +1,7 @@
 import {
     Car, Wrench, BarChart3, Shield, Smartphone, Fuel,
     CheckCircle2, MapPin, Users, TrendingDown, Clock,
-    Eye, Zap, Lock, Globe,
+    Eye, Zap, Lock, Globe, Building2, Truck, Activity
 } from "lucide-react";
 
 export const STATS = [
@@ -97,9 +97,10 @@ export const BENEFITS = [
 ];
 
 export const TARGETS = [
-    { emoji: "🏢", title: "PME & ETI", desc: "Entreprises avec une flotte de véhicules de service ou de livraison." },
-    { emoji: "🔧", title: "Sociétés de services", desc: "Techniciens terrain, maintenance, installation & BTP." },
-    { emoji: "🚚", title: "Transport léger", desc: "Coursiers, prestataires logistiques, agences de location." },
+    { icon: Building2, title: "PME & ETI", desc: "Entreprises avec une flotte de véhicules de service ou de livraison." },
+    { icon: Wrench, title: "Sociétés de services", desc: "Techniciens terrain, maintenance, installation & BTP." },
+    { icon: Truck, title: "Transport léger", desc: "Coursiers, prestataires logistiques, agences de location." },
+    { icon: Activity, title: "Transport Médico-social", desc: "Ambulances, VSL, et professionnels de santé à domicile." },
 ];
 
 export const CERTIFS = [
