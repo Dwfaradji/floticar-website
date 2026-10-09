@@ -15,7 +15,7 @@ const SHOWCASE_ITEMS = [
     image: "/images/photo-office.jpg",
     points: [
       "Indicateurs de performance (KPIs) en temps réel",
-      "Cartographie et localisation des véhicules",
+      "Suivi détaillé de l'état du parc automobile",
       "Analytique avancée des coûts",
     ],
   },
@@ -29,7 +29,7 @@ const SHOWCASE_ITEMS = [
     points: [
       "Alertes prédictives d'entretien",
       "Historique inaltérable des interventions",
-      "Synchronisation avec vos garages partenaires",
+      "Gestion centralisée de vos fiches d'entretien",
     ],
   },
   {
@@ -40,9 +40,9 @@ const SHOWCASE_ITEMS = [
     description: "Gérez les assignations avec une fluidité déconcertante. Une vue panoramique sur vos équipes et leurs véhicules attribués.",
     image: "/images/photo-hero.jpg",
     points: [
-      "Attribution instantanée par glisser-déposer",
-      "Contrôle automatisé de la validité des permis",
-      "Système de communication intégré",
+      "Gestion des fiches et coordonnées conducteurs",
+      "Attribution manuelle des véhicules",
+      "Historique complet des assignations",
     ],
   },
 ];
@@ -53,23 +53,23 @@ export default function ShowcaseSection() {
     const activeItem = SHOWCASE_ITEMS.find((item) => item.id === activeTab) || SHOWCASE_ITEMS[0];
 
     return (
-        <section aria-label="Aperçu de la plateforme" id="plateforme" className="bg-gray-50 dark:bg-[#030409] py-32 border-y border-gray-200/50 dark:border-white/5">
+        <section aria-label="Aperçu de la plateforme" id="plateforme" className="border-y border-gray-200/50 bg-gray-50 py-32 dark:border-white/5 dark:bg-[#030409]">
             <div className="mx-auto max-w-7xl px-6">
                 
-                <div className="mb-16 text-center max-w-3xl mx-auto">
-                    <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white mb-6">
-                        Une conception <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">millimétrée.</span>
+                <div className="mx-auto mb-16 max-w-3xl text-center">
+                    <h2 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white">
+                        Une conception <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">millimétrée.</span>
                     </h2>
                     <p className="text-lg text-gray-500 dark:text-gray-400">
-                        Oubliez les logiciels complexes des années 2000. Floticar introduit l'ergonomie grand public dans le monde de l'entreprise.
+                        Oubliez les logiciels complexes des années 2000. Floticar introduit l&apos;ergonomie grand public dans le monde de l&apos;entreprise.
                     </p>
                 </div>
 
                 {/* Interactive Interface */}
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+                <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-20">
                     
                     {/* Left: Interactive Tabs & Content */}
-                    <div className="w-full lg:w-[45%] flex flex-col gap-8">
+                    <div className="flex w-full flex-col gap-8 lg:w-[45%]">
                         {/* Tab Selector */}
                         <div className="flex flex-col gap-2">
                             {SHOWCASE_ITEMS.map((item) => {
@@ -80,10 +80,10 @@ export default function ShowcaseSection() {
                                     <button
                                         key={item.id}
                                         onClick={() => setActiveTab(item.id)}
-                                        className={`group relative flex items-center gap-4 rounded-2xl p-5 text-left transition-all duration-300 ${
+                                        className={`group relative flex items-center gap-4 rounded-2xl border p-5 text-left transition-all duration-300 ${
                                             isActive 
-                                                ? "bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:bg-white/10 dark:shadow-[0_8px_30px_rgba(255,255,255,0.05)] border border-gray-200/50 dark:border-white/10" 
-                                                : "hover:bg-gray-100/50 dark:hover:bg-white/5 border border-transparent"
+                                                ? "border-gray-200/50 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:border-white/10 dark:bg-white/10 dark:shadow-[0_8px_30px_rgba(255,255,255,0.05)]" 
+                                                : "border-transparent hover:bg-gray-100/50 dark:hover:bg-white/5"
                                         }`}
                                     >
                                         <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 ${
@@ -94,7 +94,7 @@ export default function ShowcaseSection() {
                                             <Icon size={22} strokeWidth={isActive ? 2 : 1.5} />
                                         </div>
                                         <div>
-                                            <h4 className={`text-xl font-bold tracking-tight transition-colors duration-300 ${isActive ? "text-gray-900 dark:text-white" : "text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"}`}>
+                                            <h4 className={`text-xl font-bold tracking-tight transition-colors duration-300 ${isActive ? "text-gray-900 dark:text-white" : "text-gray-500 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"}`}>
                                                 {item.shortTitle}
                                             </h4>
                                             {isActive && (
@@ -115,10 +115,10 @@ export default function ShowcaseSection() {
 
                     {/* Right: Dynamic Image Showcase */}
                     <div className="w-full lg:w-[55%]">
-                        <div className="relative aspect-[4/3] w-full max-w-[800px] mx-auto lg:mx-0">
-                            <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-blue-600/10 to-cyan-500/10 blur-3xl z-0" />
+                        <div className="relative mx-auto aspect-[4/3] w-full max-w-[800px] lg:mx-0">
+                            <div className="absolute inset-0 z-0 rounded-[2.5rem] bg-gradient-to-tr from-blue-600/10 to-cyan-500/10 blur-3xl" />
                             
-                            <div className="relative h-full w-full overflow-hidden rounded-[2rem] border border-gray-200/80 bg-white/40 p-2 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-white/5 z-10 flex items-center justify-center">
+                            <div className="relative z-10 flex h-full w-full items-center justify-center overflow-hidden rounded-[2rem] border border-gray-200/80 bg-white/40 p-2 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={activeItem.id}
@@ -154,7 +154,7 @@ export default function ShowcaseSection() {
                                 >
                                     {activeItem.points.map((point, idx) => (
                                         <div key={idx} className="flex items-center gap-3">
-                                            <CheckCircle2 className="h-5 w-5 text-blue-600 dark:text-blue-400 shrink-0" />
+                                            <CheckCircle2 className="h-5 w-5 shrink-0 text-blue-600 dark:text-blue-400" />
                                             <span className="text-base font-medium text-gray-700 dark:text-gray-300">{point}</span>
                                         </div>
                                     ))}

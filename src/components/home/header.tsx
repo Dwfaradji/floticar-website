@@ -12,8 +12,7 @@ const NAV_LINKS = [
   { label: "Accueil", href: "/" },
   { label: "Démo", href: "/demande-de-demo" },
   { label: "Contact", href: "/contact" },
-  { label: "Confidentialité", href: "/privacy" },
-  { label: "Mentions légales", href: "/legal" },
+  { label: "Tarifs", href: "/tarifs" },
   { label: "FAQ", href: "/faq" },
 ];
 

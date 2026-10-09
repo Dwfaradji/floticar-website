@@ -18,8 +18,13 @@ const faqs = [
   { category: "Contrôle", icon: BarChart2, question: "Comment obtenir des rapports détaillés ?", answer: "Floticar génère des rapports personnalisés que vous pouvez exporter pour les réunions et audits." },
   { category: "Sécurité", icon: Shield, question: "Mes données sont-elles sécurisées ?", answer: "Toutes les données sont chiffrées et hébergées sur des serveurs sécurisés conformes RGPD." },
   { category: "Sécurité", icon: Shield, question: "Qui a accès aux données de ma flotte ?", answer: "Seuls les utilisateurs que vous avez autorisés peuvent accéder aux informations sensibles." },
+  { category: "Sécurité", icon: Shield, question: "Où sont stockées mes données ?", answer: "Vos informations sont hébergées exclusivement sur des serveurs sécurisés situés en France. Nous utilisons un cryptage de bout en bout (AES-256) et réalisons des sauvegardes quotidiennes." },
   { category: "Business", icon: DollarSign, question: "Floticar est-il rentable pour ma flotte ?", answer: "Nos clients constatent en moyenne une réduction de 15 à 25 % des coûts opérationnels grâce à une meilleure gestion." },
+  { category: "Business", icon: DollarSign, question: "Y a-t-il une période d'engagement ou des frais cachés ?", answer: "Non, chez Floticar, la transparence est notre priorité. Nos offres sont sans engagement. Vous êtes libre d'annuler ou de modifier votre abonnement à tout moment." },
+  { category: "Business", icon: DollarSign, question: "Comment est calculé le prix si ma flotte évolue en cours de mois ?", answer: "La facturation s'ajuste automatiquement (au prorata) chaque mois en fonction du nombre exact de véhicules actifs dans votre plateforme. Si vous vendez un véhicule le 15 du mois, vous ne paierez que pour 15 jours." },
+  { category: "Business", icon: DollarSign, question: "Comment fonctionne l'essai gratuit de 14 jours ?", answer: "Vous avez accès à l'intégralité des fonctionnalités de l'offre Essentiel pendant 14 jours, sans carte bancaire. Ensuite, vous pourrez souscrire à un abonnement." },
   { category: "Support", icon: Truck, question: "Comment contacter le support ?", answer: "Par email ou via le formulaire de contact, réponse sous 24h." },
+  { category: "Support", icon: HelpCircle, question: "Puis-je importer mes données actuelles (fichiers Excel) ?", answer: "Absolument. Lors de l'onboarding, nous importons gratuitement et structurons l'ensemble de votre parc et de vos conducteurs sur la plateforme à partir de vos fichiers Excel." },
 ];
 
 const categoryColors: Record<string, string> = {

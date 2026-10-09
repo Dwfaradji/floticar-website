@@ -36,15 +36,39 @@ export default function DemoRequestPage() {
         email: "",
         company: "",
         fleetSize: "",
-        message: ""
+        message: "",
+        website: "" // honeypot
     });
     const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [errors, setErrors] = useState<Record<string, string>>({});
+    const [consent, setConsent] = useState(false);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
-        setForm({ ...form, [e.target.name]: e.target.value });
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value });
+        if (errors[name]) {
+            setErrors({ ...errors, [name]: "" });
+        }
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        
+        // Custom validation
+        const newErrors: Record<string, string> = {};
+        if (!form.name.trim()) newErrors.name = "Le nom est requis.";
+        if (!form.email.trim()) newErrors.email = "L'email est requis.";
+        if (!form.company.trim()) newErrors.company = "L'entreprise est requise.";
+        if (!form.fleetSize) newErrors.fleetSize = "Veuillez sélectionner une taille.";
+        if (!form.message.trim()) newErrors.message = "Veuillez décrire votre besoin.";
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
+        setErrors({});
+        
         setStatus("loading");
         try {
             const res = await fetch("/api/demo", {
@@ -54,10 +78,14 @@ export default function DemoRequestPage() {
             });
             if (res.ok) {
                 setStatus("success");
+                setErrorMessage("");
             } else {
+                const data = await res.json().catch(() => ({}));
+                setErrorMessage(data.error || "Une erreur est survenue lors de l'envoi.");
                 setStatus("error");
             }
         } catch {
+            setErrorMessage("Impossible de joindre le serveur. Vérifiez votre connexion.");
             setStatus("error");
         }
     };
@@ -147,7 +175,10 @@ export default function DemoRequestPage() {
                                             </button>
                                         </motion.div>
                                     ) : (
-                                        <form onSubmit={handleSubmit} className="space-y-4">
+                                        <form onSubmit={handleSubmit} noValidate className="space-y-4">
+                                            {/* Honeypot field (hidden from real users, filled by bots) */}
+                                            <input type="text" name="website" value={form.website} onChange={handleChange} tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+                                            
                                             <div className="grid gap-4 sm:grid-cols-2">
                                                 <div>
                                                     <label htmlFor="name" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">Nom complet</label>
@@ -156,8 +187,9 @@ export default function DemoRequestPage() {
                                                         type="text" name="name" required placeholder="Jean Dupont"
                                                         autoComplete="name"
                                                         value={form.name} onChange={handleChange}
-                                                        className="input-field focus:input-field-focus"
+                                                        className={`input-field focus:input-field-focus ${errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
                                                     />
+                                                    {errors.name && <p className="mt-1.5 text-xs text-red-500">{errors.name}</p>}
                                                 </div>
                                                 <div>
                                                     <label htmlFor="email" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">Email pro</label>
@@ -166,8 +198,9 @@ export default function DemoRequestPage() {
                                                         type="email" name="email" required placeholder="jean@entreprise.com"
                                                         autoComplete="email"
                                                         value={form.email} onChange={handleChange}
-                                                        className="input-field focus:input-field-focus"
+                                                        className={`input-field focus:input-field-focus ${errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
                                                     />
+                                                    {errors.email && <p className="mt-1.5 text-xs text-red-500">{errors.email}</p>}
                                                 </div>
                                             </div>
 
@@ -179,8 +212,9 @@ export default function DemoRequestPage() {
                                                         type="text" name="company" required placeholder="Ex: Floticar SAS"
                                                         autoComplete="organization"
                                                         value={form.company} onChange={handleChange}
-                                                        className="input-field focus:input-field-focus"
+                                                        className={`input-field focus:input-field-focus ${errors.company ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
                                                     />
+                                                    {errors.company && <p className="mt-1.5 text-xs text-red-500">{errors.company}</p>}
                                                 </div>
                                                 <div>
                                                     <label htmlFor="fleetSize" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">Taille de flotte</label>
@@ -188,7 +222,7 @@ export default function DemoRequestPage() {
                                                         id="fleetSize"
                                                         name="fleetSize" required
                                                         value={form.fleetSize} onChange={handleChange}
-                                                        className="input-field focus:input-field-focus appearance-none"
+                                                        className={`input-field focus:input-field-focus appearance-none ${errors.fleetSize ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
                                                     >
                                                         <option value="">Sélectionnez...</option>
                                                         <option value="1-10">1 - 10 véhicules</option>
@@ -196,29 +230,32 @@ export default function DemoRequestPage() {
                                                         <option value="51-200">51 - 200 véhicules</option>
                                                         <option value="200+">Plus de 200 véhicules</option>
                                                     </select>
+                                                    {errors.fleetSize && <p className="mt-1.5 text-xs text-red-500">{errors.fleetSize}</p>}
                                                 </div>
                                             </div>
 
                                             <div>
-                                                <label htmlFor="message" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">Votre besoin (optionnel)</label>
+                                                <label htmlFor="message" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">Votre besoin</label>
                                                 <textarea
                                                     id="message"
                                                     name="message" rows={3} placeholder="Dites-nous en plus sur vos attentes..."
                                                     value={form.message} onChange={handleChange}
-                                                    className="input-field focus:input-field-focus resize-none"
+                                                    required
+                                                    className={`input-field focus:input-field-focus resize-none ${errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
                                                 />
+                                                {errors.message && <p className="mt-1.5 text-xs text-red-500">{errors.message}</p>}
                                             </div>
 
                                             {status === "error" && (
-                                                <p className="flex items-center gap-2 text-sm text-red-500">
-                                                    <AlertCircle size={14} /> Une erreur est survenue. Veuillez réessayer.
+                                                <p className="flex items-start gap-2 text-sm text-red-500 font-medium">
+                                                    <AlertCircle size={16} className="shrink-0 mt-0.5" /> <span>{errorMessage}</span>
                                                 </p>
                                             )}
 
                                             <button
                                                 type="submit"
-                                                disabled={status === "loading"}
-                                                className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-blue-600 py-4 text-sm font-bold text-white transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-500/20 disabled:opacity-70"
+                                                disabled={status === "loading" || !consent}
+                                                className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-blue-600 py-4 text-sm font-bold text-white transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-500/20 disabled:opacity-70 disabled:cursor-not-allowed"
                                             >
                                                 {status === "loading" ? (
                                                     <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
@@ -229,9 +266,18 @@ export default function DemoRequestPage() {
                                                 )}
                                             </button>
 
-                                            <p className="mt-4 text-center text-xs text-gray-500 dark:text-gray-400">
-                                                En envoyant ce formulaire, vous acceptez d&apos;être recontacté par notre équipe. Données confidentielles.
-                                            </p>
+                                            <div className="mt-4 flex items-start gap-3">
+                                                <input 
+                                                    type="checkbox" 
+                                                    id="consent" 
+                                                    checked={consent}
+                                                    onChange={(e) => setConsent(e.target.checked)}
+                                                    className="mt-0.5 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600 dark:border-gray-600 dark:bg-gray-800"
+                                                />
+                                                <label htmlFor="consent" className="text-xs leading-relaxed text-gray-500 dark:text-gray-400">
+                                                    J&apos;accepte que mes données soient traitées conformément à la <a href="/privacy" className="text-blue-600 hover:underline dark:text-blue-400">Politique de Confidentialité</a>.
+                                                </label>
+                                            </div>
                                         </form>
                                     )}
                                 </AnimatePresence>

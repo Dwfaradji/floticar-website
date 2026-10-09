@@ -1,7 +1,7 @@
 import {
-    Car, Wrench, BarChart3, Shield, Smartphone, Fuel,
-    CheckCircle2, MapPin, Users, TrendingDown, Clock,
-    Eye, Zap, Lock, Globe, Building2, Truck, Activity
+    Car, Wrench, BarChart3, Shield, Fuel,
+    CheckCircle2, Users, TrendingDown, Clock,
+    Eye, Zap, Lock, Globe, Building2, Truck, Activity, FileText, LayoutDashboard, ShieldAlert
 } from "lucide-react";
 
 export const STATS = [
@@ -27,39 +27,39 @@ export const PAINS = [
 export const FEATURES = [
     {
         icon: Car, color: "blue",
-        title: "Gestion de flotte",
-        desc: "Centralisez tous vos véhicules, historiques et documents dans un espace unique et structuré.",
-        points: ["Fiches véhicules complètes", "Immatriculations & CT", "Documents associés"],
+        title: "Gestion des Véhicules",
+        desc: "Fiches techniques, suivi kilométrique, état des lieux, et gestion des contrats.",
+        points: ["Fiches techniques", "Suivi kilométrique", "Gestion des contrats"],
     },
     {
-        icon: Wrench, color: "amber",
-        title: "Entretiens & Interventions",
-        desc: "Planifiez et suivez les maintenances. Ne ratez plus jamais un contrôle technique ou une révision.",
-        points: ["Alertes automatiques", "Historique complet", "Stock de pièces"],
+        icon: Users, color: "cyan",
+        title: "Gestion des Conducteurs",
+        desc: "Gérez l'attribution de véhicules et l'historique complet des assignations.",
+        points: ["Attribution manuelle", "Historique assignations", "Suivi des conducteurs"],
     },
     {
         icon: BarChart3, color: "emerald",
         title: "Dépenses & Carburant",
-        desc: "Analysez vos coûts en temps réel. Identifiez les postes de dépenses excessifs et optimisez.",
-        points: ["Rapports visuels", "Export PDF/CSV", "Suivi carburant détaillé"],
+        desc: "Suivi des consommations de carburant, factures d'entretien avec gestion des tickets dématérialisés.",
+        points: ["Consommations", "Factures d'entretien", "Tickets dématérialisés"],
     },
     {
-        icon: MapPin, color: "violet",
-        title: "Trajets & Planification",
-        desc: "Attribuez des trajets aux conducteurs et suivez les kilométrages parcourus facilement.",
-        points: ["Planning hebdomadaire", "Km parcourus", "Multi-conducteurs"],
+        icon: FileText, color: "amber",
+        title: "Documents Administratifs",
+        desc: "Stockage centralisé (Cartes grises, assurances, contrôles techniques).",
+        points: ["Cartes grises", "Assurances", "Contrôles techniques"],
     },
     {
-        icon: Users, color: "cyan",
-        title: "Conducteurs & Rôles",
-        desc: "Gérez les droits d'accès de chaque utilisateur selon son rôle dans l'organisation.",
-        points: ["RBAC complet", "Invitations par email", "Profils conducteurs"],
+        icon: LayoutDashboard, color: "violet",
+        title: "Dashboard Global",
+        desc: "Vue d'ensemble de la flotte (Véhicules en service, coûts, alertes).",
+        points: ["Véhicules en service", "Suivi des coûts", "Gestion des alertes"],
     },
     {
-        icon: Smartphone, color: "pink",
-        title: "Application Mobile",
-        desc: "Vos conducteurs saisissent les données terrain depuis leur smartphone en temps réel.",
-        points: ["iOS & Android", "QR Code véhicule", "Saisie hors-ligne"],
+        icon: ShieldAlert, color: "pink",
+        title: "Gestion des Amendes",
+        desc: "Traitez les infractions facilement en identifiant instantanément le conducteur responsable.",
+        points: ["Identification du conducteur", "Suivi des infractions", "Historique d'assignations"],
     },
 ];
 
@@ -100,7 +100,7 @@ export const TARGETS = [
     { icon: Building2, title: "PME & ETI", desc: "Entreprises avec une flotte de véhicules de service ou de livraison." },
     { icon: Wrench, title: "Sociétés de services", desc: "Techniciens terrain, maintenance, installation & BTP." },
     { icon: Truck, title: "Transport léger", desc: "Coursiers, prestataires logistiques, agences de location." },
-    { icon: Activity, title: "Transport Médico-social", desc: "Ambulances, VSL, et professionnels de santé à domicile." },
+    { icon: Activity, title: "Transport Médico-social", desc: "DITEP, IME, SESSAD." },
 ];
 
 export const CERTIFS = [
@@ -114,6 +114,7 @@ export const CERTIFS = [
 
 export const NAV_LINKS = [
     { label: "Accueil", href: "/" },
+    { label: "Tarifs", href: "/tarifs" },
     { label: "Contact", href: "/contact" },
     { label: "Confidentialité", href: "/privacy" },
     { label: "Mentions légales", href: "/legal" },

@@ -9,6 +9,7 @@ import SecuritySection from "@/components/sections/SecuritySection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
 import FinalCTA from "@/components/sections/FinalCTA";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
+import PricingCTASection from "@/components/sections/PricingCTASection";
 
 export default function FleetLandingPage() {
   return (
@@ -20,6 +21,7 @@ export default function FleetLandingPage() {
       <HowItWorksSection />
       <ShowcaseSection />
       <BenefitsSection />
+      <PricingCTASection />
       <TargetSection />
       <SecuritySection />
       <TestimonialSection />

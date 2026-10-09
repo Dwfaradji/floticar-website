@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/animations";
 import { PAINS } from "@/lib/constants/landing";
-import Section from "../ui/Section";
+
 import { AlertCircle } from "lucide-react";
 
 export default function ProblemSection() {
@@ -12,18 +12,18 @@ export default function ProblemSection() {
             {/* Dark background, extremely premium feel */}
             <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-800 dark:from-[#030409] dark:to-[#0a0a0a]" />
             
-            <div className="mx-auto max-w-7xl px-6 relative z-10">
-                <div className="mb-20 flex flex-col items-center text-center max-w-3xl mx-auto">
+            <div className="relative z-10 mx-auto max-w-7xl px-6">
+                <div className="mx-auto mb-20 flex max-w-3xl flex-col items-center text-center">
                     <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                        <div className="inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-3 py-1 text-sm font-medium text-red-400 mb-6">
+                        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-red-500/20 bg-red-500/10 px-3 py-1 text-sm font-medium text-red-400">
                             <AlertCircle size={14} />
                             Le constat
                         </div>
-                        <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-6">
+                        <h2 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
                             Gérer une flotte ne devrait pas être un gouffre financier.
                         </h2>
                         <p className="text-lg text-gray-400">
-                            Sans outil centralisé, l'information se perd. Les entretiens sont oubliés, les coûts de carburant s'envolent, et la charge mentale de votre équipe explose.
+                            Sans outil centralisé, l&apos;information se perd. Les entretiens sont oubliés, les coûts de carburant s&apos;envolent, et la charge mentale de votre équipe explose.
                         </p>
                     </motion.div>
                 </div>
@@ -43,7 +43,7 @@ export default function ProblemSection() {
                                 <Icon size={24} strokeWidth={1.5} />
                             </div>
                             <h3 className="mb-3 text-xl font-bold tracking-tight text-white">{title}</h3>
-                            <p className="text-sm leading-relaxed text-gray-400 group-hover:text-gray-300 transition-colors">{desc}</p>
+                            <p className="text-sm leading-relaxed text-gray-400 transition-colors group-hover:text-gray-300">{desc}</p>
                         </motion.div>
                     ))}
                 </div>

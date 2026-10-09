@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { sendMail } from "@/lib/mailer";
+import { validateEmailStrict } from "@/lib/email-validator";
 
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-const isValidEmail = (email: string) =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+const sanitize = (str: string) => 
+    str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 // ─── Email templates ──────────────────────────────────────────────────────────
 function templateNotif(name: string, email: string, message: string): string {
@@ -116,13 +116,20 @@ function templateConfirm(name: string): string {
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { name, email, message } = body as {
+        const { name, email, message, website } = body as {
             name?: string;
             email?: string;
             message?: string;
+            website?: string;
         };
 
-        // Validation
+        // 1. Honeypot check (anti-bot)
+        if (website) {
+            // Fake success to fool bots
+            return NextResponse.json({ success: true }, { status: 200 });
+        }
+
+        // 2. Validation de base
         if (!name?.trim() || !email?.trim() || !message?.trim()) {
             return NextResponse.json(
                 { error: "Tous les champs sont requis." },
@@ -130,9 +137,18 @@ export async function POST(request: Request) {
             );
         }
 
-        if (!isValidEmail(email)) {
+        // 3. Validation de longueur (protection anti-spam/payloads massifs)
+        if (name.length > 100 || email.length > 100 || message.length > 3000) {
             return NextResponse.json(
-                { error: "Adresse email invalide." },
+                { error: "La longueur d'un ou plusieurs champs est invalide." },
+                { status: 400 }
+            );
+        }
+
+        const emailCheck = await validateEmailStrict(email);
+        if (!emailCheck.valid) {
+            return NextResponse.json(
+                { error: emailCheck.reason },
                 { status: 400 }
             );
         }
@@ -146,19 +162,24 @@ export async function POST(request: Request) {
             );
         }
 
-        // 1. Notification à l'équipe Floticar
+        // 4. Assainissement des données (prévention XSS basique dans les emails)
+        const sName = sanitize(name.trim());
+        const sEmail = sanitize(email.trim());
+        const sMessage = sanitize(message.trim());
+
+        // Notification à l'équipe Floticar
         await sendMail({
             to: contactTo,
-            subject: `[Contact] Nouveau message de ${name}`,
-            html: templateNotif(name.trim(), email.trim(), message.trim()),
-            replyTo: email.trim(),
+            subject: `[Contact] Nouveau message de ${sName}`,
+            html: templateNotif(sName, sEmail, sMessage),
+            replyTo: sEmail,
         });
 
-        // 2. Confirmation à l'expéditeur
+        // Confirmation à l'expéditeur
         await sendMail({
-            to: email.trim(),
+            to: sEmail,
             subject: "Nous avons bien reçu votre message — Floticar",
-            html: templateConfirm(name.trim()),
+            html: templateConfirm(sName),
         });
 
         return NextResponse.json({ success: true }, { status: 200 });

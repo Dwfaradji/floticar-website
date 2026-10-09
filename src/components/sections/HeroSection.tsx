@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { fadeUp, stagger } from "@/lib/animations";
@@ -11,17 +10,19 @@ export default function HeroSection() {
     const router = useRouter();
 
     return (
-        <section className="relative min-h-[100vh] w-full overflow-hidden flex flex-col items-center justify-center px-6">
+        <section className="relative flex min-h-[100vh] w-full flex-col items-center justify-center overflow-hidden px-6">
 
-            {/* Full Screen Background Image */}
+            {/* Full Screen Background Video */}
             <div className="absolute inset-0 z-0">
-                <Image
-                    src="/images/photo-hero.jpg"
-                    alt="Floticar Manager"
-                    fill
-                    className="object-cover object-center"
-                    priority
-                />
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="h-full w-full object-cover object-center"
+                >
+                    <source src="/video/video_presentation.mp4" type="video/mp4" />
+                </video>
 
                 {/* Gradient Overlays for Text Legibility */}
                 <div className="absolute inset-0 bg-black/40" />
@@ -33,11 +34,11 @@ export default function HeroSection() {
                 variants={stagger}
                 initial="hidden"
                 animate="visible"
-                className="relative z-10 mx-auto max-w-5xl flex flex-col items-center text-center mt-20"
+                className="relative z-10 mx-auto mt-20 flex max-w-5xl flex-col items-center text-center"
             >
                 {/* Premium Badge */}
                 <motion.div variants={fadeUp} className="mb-8">
-                    <div className="group relative inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-black/20 px-4 py-1.5 text-sm font-medium text-white shadow-sm backdrop-blur-md transition-all hover:bg-black/40 hover:border-white/40">
+                    <div className="group relative inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-black/20 px-4 py-1.5 text-sm font-medium text-white shadow-sm backdrop-blur-md transition-all hover:border-white/40 hover:bg-black/40">
                         <Sparkles className="h-4 w-4 text-cyan-400" />
                         <span>Floticar v1.0 est disponible</span>
 
@@ -52,8 +53,8 @@ export default function HeroSection() {
                     La gestion de flotte,{" "}
                     <br className="hidden md:block" />
                     repensée pour{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                        l'excellence.
+                    <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                        l&apos;excellence.
                     </span>
                 </motion.h1>
 
@@ -62,26 +63,26 @@ export default function HeroSection() {
                     variants={fadeUp}
                     className="mb-12 max-w-2xl text-lg font-medium tracking-tight text-gray-200 sm:text-xl"
                 >
-                    Pilotez vos véhicules, anticipez vos entretiens et optimisez vos coûts avec une plateforme d'une élégance et d'une puissance absolues.
+                    Pilotez vos véhicules, anticipez vos entretiens et optimisez vos coûts avec une plateforme d&apos;une élégance et d&apos;une puissance absolues.
                 </motion.p>
 
                 {/* CTA */}
                 <motion.div
                     variants={fadeUp}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
+                    className="flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row"
                 >
                     <button
                         onClick={() => router.push("/demande-de-demo")}
-                        className="group relative flex h-14 w-full sm:w-auto items-center justify-center gap-2 overflow-hidden rounded-full bg-blue-600 px-8 text-base font-semibold text-white transition-all hover:scale-105 hover:bg-blue-500 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)]"
+                        className="group relative flex h-14 w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-blue-600 px-8 text-base font-semibold text-white transition-all hover:scale-105 hover:bg-blue-500 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] sm:w-auto"
                     >
                         Demander une démo
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </button>
                     <button
                         onClick={() => router.push("/contact")}
-                        className="flex h-14 w-full sm:w-auto items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 text-base font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20 hover:shadow-sm"
+                        className="flex h-14 w-full items-center justify-center rounded-full border border-white/30 bg-white/10 px-8 text-base font-semibold text-white backdrop-blur-md transition-all hover:bg-white/20 hover:shadow-sm sm:w-auto"
                     >
-                        Contacter l'équipe
+                        Contacter l&apos;équipe
                     </button>
                 </motion.div>
 
@@ -97,7 +98,7 @@ export default function HeroSection() {
             </motion.div>
 
             {/* Subtle bottom fade to transition to the next section cleanly */}
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#fafafa] dark:from-[#030409] to-transparent z-10 pointer-events-none" />
+            <div className="pointer-events-none absolute right-0 bottom-0 left-0 z-10 h-32 bg-gradient-to-t from-[#fafafa] to-transparent dark:from-[#030409]" />
         </section>
     );
 }

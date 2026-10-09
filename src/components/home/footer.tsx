@@ -8,6 +8,7 @@ import { Mail, Shield, FileText, Phone } from "lucide-react";
 const FOOTER_LINKS = [
   { label: "Confidentialité", href: "/privacy", icon: Shield },
   { label: "Mentions légales", href: "/legal", icon: FileText },
+  { label: "CGU", href: "/cgu", icon: FileText },
   { label: "Contact", href: "/contact", icon: Phone },
 ];
 

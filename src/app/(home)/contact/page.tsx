@@ -36,14 +36,34 @@ const features = [
 ];
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "", website: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: "" });
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Custom validation
+    const newErrors: Record<string, string> = {};
+    if (!form.name.trim()) newErrors.name = "Le nom est requis.";
+    if (!form.email.trim()) newErrors.email = "L'email est requis.";
+    if (!form.message.trim()) newErrors.message = "Le message est requis.";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    setErrors({});
+    
     setStatus("loading");
     try {
       const res = await fetch("/api/contact", {
@@ -51,9 +71,19 @@ export default function ContactPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (res.ok) { setStatus("success"); setForm({ name: "", email: "", message: "" }); }
-      else setStatus("error");
-    } catch { setStatus("error"); }
+      if (res.ok) { 
+        setStatus("success"); 
+        setForm({ name: "", email: "", message: "", website: "" }); 
+        setErrorMessage("");
+      } else { 
+        const data = await res.json().catch(() => ({}));
+        setErrorMessage(data.error || "Une erreur est survenue lors de l'envoi.");
+        setStatus("error"); 
+      }
+    } catch { 
+      setErrorMessage("Impossible de joindre le serveur. Vérifiez votre connexion.");
+      setStatus("error"); 
+    }
   };
 
   return (
@@ -130,9 +160,12 @@ export default function ContactPage() {
                 </button>
               </motion.div>
             ) : (
-              <motion.form key="form" onSubmit={handleSubmit}
+              <motion.form key="form" onSubmit={handleSubmit} noValidate
                 className="rounded-3xl border border-gray-100 bg-white/80 p-8 shadow-xl shadow-gray-100 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-950/80 dark:shadow-none"
               >
+                {/* Honeypot field (hidden from real users, filled by bots) */}
+                <input type="text" name="website" value={form.website} onChange={handleChange} tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+                
                 <h2 className="text-foreground mb-6 text-xl font-bold">Envoyez-nous un message</h2>
                 <div className="space-y-4">
                   {[
@@ -147,8 +180,9 @@ export default function ContactPage() {
                         autoComplete={autoComplete}
                         value={form[name as keyof typeof form]} onChange={handleChange}
                         required
-                        className="input-field focus:input-field-focus"
+                        className={`input-field focus:input-field-focus ${errors[name] ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
                       />
+                      {errors[name] && <p className="mt-1.5 text-xs text-red-500">{errors[name]}</p>}
                     </div>
                   ))}
                   <div>
@@ -158,14 +192,15 @@ export default function ContactPage() {
                       name="message" placeholder="Décrivez votre flotte ou votre besoin..."
                       value={form.message} onChange={handleChange}
                       rows={4}
-                      className="input-field focus:input-field-focus resize-none"
+                      className={`input-field focus:input-field-focus resize-none ${errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
                     />
+                    {errors.message && <p className="mt-1.5 text-xs text-red-500">{errors.message}</p>}
                   </div>
 
                   {status === "error" && (
                     <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                      className="flex items-center gap-2 text-sm text-red-500">
-                      <AlertCircle size={14} /> Une erreur est survenue. Veuillez réessayer.
+                      className="flex items-start gap-2 text-sm text-red-500 font-medium">
+                      <AlertCircle size={16} className="shrink-0 mt-0.5" /> <span>{errorMessage}</span>
                     </motion.p>
                   )}
 
