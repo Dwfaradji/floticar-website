@@ -15,8 +15,8 @@ export default function FleetLandingPage() {
   return (
     <main className="flex flex-col overflow-x-hidden transition-colors duration-300">
       <HeroSection />
-      <StatsSection />
       <ProblemSection />
+      <StatsSection />
       <FeaturesSection />
       <HowItWorksSection />
       <ShowcaseSection />

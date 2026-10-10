@@ -100,7 +100,7 @@ export const TARGETS = [
     { icon: Building2, title: "PME & ETI", desc: "Entreprises avec une flotte de véhicules de service ou de livraison." },
     { icon: Wrench, title: "Sociétés de services", desc: "Techniciens terrain, maintenance, installation & BTP." },
     { icon: Truck, title: "Transport léger", desc: "Coursiers, prestataires logistiques, agences de location." },
-    { icon: Activity, title: "Transport Médico-social", desc: "DITEP, IME, SESSAD." },
+    { icon: Activity, title: "Transport Médico-social", desc: "DITEP, IME, SESSAD ..." },
 ];
 
 export const CERTIFS = [

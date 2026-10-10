@@ -162,7 +162,7 @@ export default function PricingSection() {
              { `La gestion manuelle d'une flotte automobile via des tableurs engendre des coûts invisibles colossaux : retards d'entretien provoquant des pannes lourdes, oublis de restitution entraînant des pénalités kilométriques, ou encore amendes majorées par manque de réactivité.`}
             </p>
             <p>
-             {`  En passant sur Floticar, <strong>nos clients constatent en moyenne une réduction de 15% à 20% de leur TCO</strong> (Coût Total de Possession). Pour seulement 12,90€ par mois par véhicule, le logiciel se rembourse de lui-même dès la première pénalité évitée ou le premier litige résolu.`}
+              En passant sur Floticar, <strong>nos clients constatent en moyenne une réduction de 15% à 20% de leur TCO</strong> (Coût Total de Possession). Pour seulement 12,90€ par mois par véhicule, le logiciel se rembourse de lui-même dès la première pénalité évitée ou le premier litige résolu.
             </p>
           </div>
         </motion.div>

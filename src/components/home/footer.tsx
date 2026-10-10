@@ -9,6 +9,8 @@ const FOOTER_LINKS = [
   { label: "Confidentialité", href: "/privacy", icon: Shield },
   { label: "Mentions légales", href: "/legal", icon: FileText },
   { label: "CGU", href: "/cgu", icon: FileText },
+  { label: "Faq", href: "/faq", icon: Shield },
+
   { label: "Contact", href: "/contact", icon: Phone },
 ];
 
