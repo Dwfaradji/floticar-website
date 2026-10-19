@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: ['/_next/', '/api/'],
+            disallow: ['/api/'],
         },
         sitemap: 'https://floticar.com/sitemap.xml',
     }

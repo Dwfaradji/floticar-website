@@ -2,8 +2,11 @@ import { Metadata } from "next";
 import PricingSection from "@/components/sections/PricingSection";
 
 export const metadata: Metadata = {
-  title: "Tarifs | Floticar",
-  description: "Découvrez nos offres tarifaires claires et transparentes, adaptées à la taille de votre flotte automobile.",
+  title: "Tarifs transparents gestion de flotte",
+  description: "Découvrez nos offres tarifaires claires et transparentes, adaptées à la taille de votre flotte automobile. Sans frais cachés ni engagement.",
+  alternates: {
+    canonical: "https://floticar.com/tarifs",
+  },
 };
 
 export default function TarifsPage() {

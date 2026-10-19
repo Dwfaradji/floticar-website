@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Logiciel de Suivi d'Entretien de Flotte Automobile | Floticar",
+    title: "Logiciel de Suivi d'Entretien de Flotte Automobile",
     description: "Anticipez les révisions, contrôles techniques et réparations de vos véhicules professionnels. Floticar automatise le suivi d'entretien de votre parc automobile.",
     alternates: {
         canonical: "https://floticar.com/fonctionnalites/suivi-entretien"

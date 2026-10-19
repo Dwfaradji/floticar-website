@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Contactez Floticar | Assistance et Support Gestion de Flotte",
+    title: "Contactez notre équipe | Support & Démonstration",
     description: "Besoin de renseignements sur notre logiciel de gestion de flotte ? Contactez l'équipe Floticar. Réponse rapide sous 24h, accompagnement personnalisé.",
     alternates: {
         canonical: "https://floticar.com/contact"

@@ -40,7 +40,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>5. Optimiser les tournées et les déplacements</h2>
       <p>Enfin, le kilomètre le moins cher est celui qu'on ne parcourt pas. La rationalisation des déplacements (regroupement des interventions, utilisation d'outils de routage optimisé) permet d'éviter les kilomètres superflus. Floticar vous aide à avoir une vue d'ensemble sur l'utilisation de vos véhicules pour repenser intelligemment vos affectations.</p>
     `,
-    date: "15 Mars 2024",
+    date: "15 Mars 2026",
     author: "Équipe Floticar",
     category: "Optimisation des coûts",
     readTime: "7 min",
@@ -69,7 +69,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Conclusion</h2>
       <p>Gérer une flotte associative nécessite de la rigueur. En modernisant cet aspect logistique, vous libérez du temps pour vos équipes encadrantes qui peuvent enfin se recentrer sur le cœur de leur mission : l'accompagnement humain.</p>
     `,
-    date: "10 Mars 2024",
+    date: "10 Avril 2026",
     author: "Équipe Floticar",
     category: "Médico-social",
     readTime: "6 min",
@@ -99,14 +99,14 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Comment Floticar vous accompagne dans cette transition ?</h2>
       <p>La dématérialisation nécessite une organisation interne différente. Avec un logiciel comme Floticar, vous pouvez importer le "Mémo Véhicule Assuré" (format PDF) directement dans le dossier numérique de la voiture. Le conducteur a ainsi accès à tout moment à ses informations d'assurance et au numéro d'assistance depuis l'application mobile, en cas d'accrochage. Une transition digitale en toute sécurité !</p>
     `,
-    date: "2 Avril 2024",
+    date: "2 Mai 2026",
     author: "Équipe Floticar",
     category: "Législation",
     readTime: "6 min",
   },
   {
-    title: "Fiscalité automobile en 2024 : TVS, bonus écologique et avantages en nature",
-    slug: "fiscalite-automobile-2024-tvs-bonus-avantages-nature",
+    title: "Fiscalité automobile en 2026 : TVS, bonus écologique et avantages en nature",
+    slug: "fiscalite-automobile-2026-tvs-bonus-avantages-nature",
     excerpt: "La fiscalité des flottes d'entreprise évolue. Tour d'horizon des nouvelles règles concernant les taxes sur l'affectation des véhicules à des fins économiques (ex-TVS) et les bonus écologiques.",
     content: `
       <h2>Adieu la TVS, bonjour aux nouvelles taxes annuelles</h2>
@@ -135,7 +135,7 @@ export const BLOG_POSTS: BlogPost[] = [
       </ul>
       <p>La transition vers l'électrique demande une analyse fine du TCO (coût total de possession), un exercice que Floticar vous aide à réaliser grâce à une remontée de données exhaustive.</p>
     `,
-    date: "25 Avril 2024",
+    date: "25 Juin 2026",
     author: "Équipe Floticar",
     category: "Fiscalité",
     readTime: "8 min",
@@ -165,8 +165,16 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>La sécurité des données et la conformité RGPD</h2>
       <p>Un autre aspect souvent sous-estimé d'Excel est la sécurité. Les gestionnaires de flotte manipulent des données hautement confidentielles (copies de permis de conduire, adresses personnelles, numéros de téléphone, infractions). Laisser ces données en clair dans un fichier stocké sur un serveur partagé non sécurisé est une violation manifeste du RGPD (Règlement Général sur la Protection des Données).</p>
       <p>Un logiciel métier centralise ces données dans un environnement sécurisé, avec une gestion stricte des droits d'accès. Investir dans un logiciel n'est donc pas une dépense, c'est une protection contre les risques opérationnels et financiers.</p>
+      
+      <div style="margin: 2.5rem 0; padding: 1.5rem; border-radius: 1rem; border: 1px solid #bfdbfe; background-color: #eff6ff;">
+        <h3 style="margin-top: 0; color: #1e3a8a; font-size: 1.15rem; font-weight: 700;">Prêt à abandonner vos tableurs de flotte ?</h3>
+        <p style="margin: 0.5rem 0 1rem; color: #1e40af; font-size: 0.95rem; line-height: 1.5;">Découvrez comment Floticar prend le relais de vos fichiers existants avec un import gratuit de vos données de parc sous 24h.</p>
+        <a href="/remplacer-excel-gestion-flotte" style="display: inline-block; padding: 0.75rem 1.25rem; border-radius: 0.75rem; background-color: #2563eb; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+          Découvrir la solution pour remplacer Excel →
+        </a>
+      </div>
     `,
-    date: "12 Mai 2024",
+    date: "12 Juillet 2026",
     author: "Équipe Floticar",
     category: "Digitalisation",
     readTime: "7 min",
@@ -196,9 +204,171 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>4. Éco-conduite et usure prématurée</h2>
       <p>Un utilitaire est souvent chargé à ras bord (matériaux lourds). Une conduite agressive dans ces conditions entraîne une usure accélérée des freins, de l'embrayage, des pneus, et une surconsommation vertigineuse de carburant. Les données télématiques (couplées aux rapports de Floticar) permettent d'analyser le comportement routier des conducteurs. En identifiant les accélérations brusques ou les freinages secs, vous pouvez instaurer une démarche de prévention et de formation, protégeant ainsi la santé de vos salariés et la durabilité de votre matériel.</p>
     `,
-    date: "28 Mai 2024",
+    date: "28 Aout 2026",
     author: "Équipe Floticar",
     category: "Artisans & BTP",
+    readTime: "8 min",
+  },
+  {
+    title: "Gestion de flotte pour sociétés de livraison VL : maîtriser l'usure, le carburant et la rotation des livreurs",
+    slug: "gestion-flotte-livraison-vl-messagerie",
+    excerpt: "Sous-traitance colis, tournées urbaines intenses, rotation des chauffeurs : gérer une flotte de fourgons VL est un défi quotidien. Découvrez comment protéger vos marges et vos utilitaires.",
+    content: `
+      <h2>La réalité du dernier kilomètre : des utilitaires soumis à rude épreuve</h2>
+      <p>Pour les sous-traitants de la livraison de colis (Amazon, Chronopost, DPD, GLS) et les sociétés de messagerie express en Véhicules Utilitaires Légers (VL / VUL de moins de 3,5 tonnes), la rentabilité se joue au centime près. Dans un secteur où les cadences sont intenses, les utilitaires (Renault Master, Peugeot Boxer, Mercedes Sprinter, Citroën Berlingo) subissent une usure accélérée :</p>
+      <ul>
+        <li><strong>Arrêts et démarrages incessants :</strong> 80 à 150 points de livraison par jour mettent les démarreurs, batteries, embrayages et plaquettes de frein à rude épreuve.</li>
+        <li><strong>Dégradations carrosserie fréquentes :</strong> Manœuvres dans des ruelles étroites, stationnements délicats, chocs de trottoirs sur les jantes et les pneus.</li>
+        <li><strong>Surconsommation de carburant :</strong> Une conduite saccadée sous la pression des délais et des moteurs laissés en marche aux arrêts font flamber la facture à la pompe.</li>
+      </ul>
+      <p>Sans un pilotage rigoureux, les coûts de maintenance et les réparations imprévues grignotent rapidement l'intégralité de la marge commerciale.</p>
+
+      <h2>Le casse-tête du turnover et de l'état des lieux au départ de tournée</h2>
+      <p>L'un des défis majeurs des entreprises de livraison est le fort taux de rotation des conducteurs (CDD, intérimaires, saisonniers). Lorsqu'un véhicule change régulièrement de mains, le sentiment de responsabilité s'étiole. Qui a enfoncé la porte latérale ? Qui a frotté l'aile arrière gauche ? Sans preuve tangible, l'entreprise se retrouve à payer les réparations lors des retours de leasing ou des révisions.</p>
+      <p>La solution réside dans la dématérialisation de l'état des lieux. En équipant chaque véhicule d'un simple QR Code sur le pare-brise ou le tableau de bord, le livreur effectue un état des lieux contradictoire en 45 secondes depuis son smartphone avant de démarrer sa tournée :</p>
+      <ul>
+        <li>Saisie du kilométrage de départ.</li>
+        <li>Photo instantanée de toute nouvelle anomalie ou rayure constatée.</li>
+        <li>Validation de la présence des documents de bord (carte grise, attestation d'assurance).</li>
+      </ul>
+      <p>Ce protocole simple responsabilise immédiatement les livreurs sans alourdir le départ des tournées du matin.</p>
+
+      <h2>Maîtriser le poste carburant sur des parcours urbains hachés</h2>
+      <p>Le carburant représente souvent plus de 25% des charges opérationnelles d'un transporteur léger. Pour limiter la casse :</p>
+      <ul>
+        <li><strong>Rapprochement automatique tickets/compteurs :</strong> En croisant les kilomètres réels saisis lors des scans et les volumes de carburant enregistrés, vous identifiez immédiatement les fourgons qui surconsomment anormalement.</li>
+        <li><strong>Sensibilisation aux arrêts prolongés :</strong> Couper le contact à chaque dépose de colis permet d'économiser entre 5% et 12% de carburant sur une tournée complète.</li>
+        <li><strong>Centralisation des justificatifs :</strong> La numérisation instantanée des reçus de station-service via smartphone garantit une récupération intégrale de la TVA sans perte de justificatifs dans les boîtes à gants.</li>
+      </ul>
+
+      <h2>Éviter la panne immobilisante : la maintenance préventive</h2>
+      <p>Dans la messagerie, un utilitaire immobilisé au dépôt équivaut à une tournée non assurée, des pénalités financières appliquées par le donneur d'ordre et des clients mécontents. Attendre la panne pour intervenir est la pire des stratégies.</p>
+      <p>Un logiciel comme Floticar permet de planifier des alertes automatiques en fonction des échéances kilométriques réelles :</p>
+      <ul>
+        <li>Alerte pour les vidanges moteur et le remplacement des filtres (tous les 15 000 ou 20 000 km).</li>
+        <li>Surveillance du témoin d'usure des freins et rotation des pneumatiques.</li>
+        <li>Rappel d'échéance du contrôle technique et du contrôle complémentaire pollution annuel pour les utilitaires.</li>
+      </ul>
+
+      <div style="margin: 2.5rem 0; padding: 1.5rem; border-radius: 1rem; border: 1px solid #bfdbfe; background-color: #eff6ff;">
+        <h3 style="margin-top: 0; color: #1e3a8a; font-size: 1.15rem; font-weight: 700;">Gérez votre flotte de livraison sans matériel complexe</h3>
+        <p style="margin: 0.5rem 0 1rem; color: #1e40af; font-size: 0.95rem; line-height: 1.5;">Découvrez comment Floticar aide les transporteurs et livreurs VL à suivre leurs kilomètres, leurs anomalies carrosserie et leur carburant avec un simple QR Code conducteur.</p>
+        <a href="/suivi-kilometrage-flotte" style="display: inline-block; padding: 0.75rem 1.25rem; border-radius: 0.75rem; background-color: #2563eb; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+          Découvrir le suivi kilométrique & QR Code →
+        </a>
+      </div>
+
+      <h2>La gestion des infractions et contraventions de circulation</h2>
+      <p>Entre les zones de livraison encombrées, les stationnements en double file et les radars urbains, les transporteurs VL reçoivent un volume élevé d'avis de contravention. Savoir précisément quel chauffeur conduisait quel fourgon à 10h42 le mardi 14 est indispensable pour respecter l'obligation légale de désignation sous 45 jours auprès de l'ANTAI, évitant ainsi à la société des amendes forfaitaires quintuplées pour non-désignation.</p>
+    `,
+    date: "14 Septembre 2026",
+    author: "Équipe Floticar",
+    category: "Transport & Livraison",
+    readTime: "8 min",
+  },
+  {
+    title: "Désignation des conducteurs et amendes en entreprise : obligations, délais et pièges à éviter",
+    slug: "designation-conducteur-amendes-entreprise-regles-antai",
+    excerpt: "L'article L. 121-6 du Code de la route oblige l'employeur à désigner le salarié ayant commis une infraction routière sous 45 jours. Sanctions, procédure ANTAI et méthode de traçabilité : guide complet.",
+    content: `
+      <h2>Le cadre légal : l'obligation stricte de l'article L. 121-6</h2>
+      <p>Depuis le 1er janvier 2017, la législation française impose aux entreprises une règle intransigeante : lorsqu'une infraction routière est commise avec un véhicule immatriculé au nom d'une personne morale et constatée par un appareil automatisé (radar de vitesse, franchissement de feu rouge, non-port de ceinture, téléphone tenu en main), le représentant légal de l'entreprise a <strong>l'obligation de désigner l'auteur de l'infraction</strong>.</p>
+      <p>Cette obligation concerne toutes les structures : PME, TPE, artisans, associations, sociétés de transport ou établissements médico-sociaux.</p>
+
+      <h2>Le délai couperet : 45 jours calendaires</h2>
+      <p>L'entreprise dispose d'un délai strict de <strong>45 jours calendaires</strong> à compter de la date d'envoi de l'avis de contravention pour effectuer la désignation auprès de l'ANTAI (Agence Nationale de Traitement Automatisé des Infractions). Passé ce délai, l'infraction de non-désignation est automatiquement caractérisée.</p>
+
+      <h2>Le coût exorbitant de la non-désignation : l'amende quintuplée</h2>
+      <p>Ne pas désigner un conducteur n'est pas un simple oubli administratif, c'est une infraction autonome (contravention de 4e classe). Conformément à l'article 530-3 du Code de procédure pénale, le montant des amendes pour les personnes morales est <strong>multiplié par 5</strong> :</p>
+      <ul>
+        <li><strong>Amende forfaitaire :</strong> 450 € (au lieu de 90 € pour un particulier).</li>
+        <li><strong>Amende forfaitaire minorée :</strong> 375 € (si payée sous 15 jours).</li>
+        <li><strong>Amende forfaitaire majorée :</strong> 1 875 € en cas de dépassement de délai.</li>
+        <li><strong>Montant maximal au tribunal de police :</strong> jusqu'à 3 750 € par infraction !</li>
+      </ul>
+      <p>Pour une PME disposant de 15 véhicules qui reçoit une dizaine de PV automatisés par an, le cumul des sanctions pour non-désignation peut rapidement atteindre 5 000 € à 18 000 € de perte sèche pour la trésorerie.</p>
+
+      <h2>Le piège classique : payer l'amende avec la carte de l'entreprise</h2>
+      <p>C'est l'erreur la plus répandue chez les chefs d'entreprise et les comptables. En recevant un avis de contravention pour un excès de vitesse de 10 km/h (amende de 68 € ou 135 €), beaucoup d'entreprises règlent directement le montant par carte bancaire sur internet pour "gagner du temps" et éviter de prélever le collaborateur.</p>
+      <p><strong>C'est un piège redoutable :</strong> En payant l'avis sans désigner le conducteur, vous reconnaissez l'infraction au nom de l'entreprise. Quelques semaines plus tard, l'ANTAI envoie un second avis d'amende forfaitaire de 450 € adressé à la société pour non-désignation du conducteur ! Le paiement initial ne purge en rien l'obligation de désignation.</p>
+
+      <h2>Comment retrouver facilement le bon conducteur sans perdre des heures ?</h2>
+      <p>Dans les entreprises où les véhicules sont partagés entre plusieurs techniciens, commerciaux ou intervenants terrain, retrouver qui conduisait le mardi 12 à 15h28 relève souvent du parcours du combattant :</p>
+      <ul>
+        <li>Les carnets de bord papier en boîte à gants sont illisibles ou mal renseignés.</li>
+        <li>Le fichier Excel partagé n'est pas mis à jour en temps réel.</li>
+        <li>Les collaborateurs ne se souviennent plus de leurs déplacements plusieurs semaines après.</li>
+      </ul>
+      <p>C'est ici qu'un outil comme Floticar apporte une sécurité totale. Grâce au carnet d'affectation numérique et aux scans QR Code au départ de chaque trajet, chaque créneau de conduite est horodaté et associé à un profil précis. Lorsqu'un avis arrive, le gestionnaire filtre par date, heure et immatriculation : l'identité du conducteur apparaît instantanément.</p>
+
+      <div style="margin: 2.5rem 0; padding: 1.5rem; border-radius: 1rem; border: 1px solid #bfdbfe; background-color: #eff6ff;">
+        <h3 style="margin-top: 0; color: #1e3a8a; font-size: 1.15rem; font-weight: 700;">Sécurisez le suivi de vos conducteurs et évitez les majorations</h3>
+        <p style="margin: 0.5rem 0 1rem; color: #1e40af; font-size: 0.95rem; line-height: 1.5;">Centralisez l'historique complet des utilisations de vos véhicules professionnels et identifiez en un clic l'auteur d'un trajet pour vos démarches ANTAI.</p>
+        <a href="/gestion-flotte-pme" style="display: inline-block; padding: 0.75rem 1.25rem; border-radius: 0.75rem; background-color: #2563eb; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+          Découvrir la gestion de flotte Floticar →
+        </a>
+      </div>
+
+      <h2>La procédure de désignation sur le site ANTAI</h2>
+      <p>La désignation s'effectue entièrement en ligne sur le portail officiel de l'ANTAI (antai.gouv.fr). Munissez-vous :</p>
+      <ol>
+        <li>Du numéro de l'avis de contravention et de la clé figurant en haut à droite.</li>
+        <li>De l'immatriculation du véhicule concerné.</li>
+        <li>Des coordonnées complètes du conducteur (nom, prénom, date de naissance, adresse postale).</li>
+        <li>Du numéro du permis de conduire du salarié et du pays de délivrance.</li>
+      </ol>
+      <p>Une fois la démarche validée, un accusé d'enregistrement est émis : conservez-le précieusement dans le dossier numérique du véhicule sous Floticar en cas de contestation ultérieure.</p>
+    `,
+    date: "5 Octobre 2026",
+    author: "Équipe Floticar",
+    category: "Réglementation & RH",
+    readTime: "7 min",
+  },
+  {
+    title: "Restitution de leasing (LLD / LOA) : comment éviter les frais de remise en état et les kilomètres excédentaires ?",
+    slug: "restitution-leasing-lld-loa-eviter-frais-remise-en-etat",
+    excerpt: "En fin de contrat LLD, les pénalités pour kilomètres excédentaires et dégradations carrosserie peuvent doubler la note. Découvrez comment anticiper et réduire vos frais de restitution.",
+    content: `
+      <h2>L'angoisse de la fin de contrat de LLD</h2>
+      <p>La Location Longue Durée (LLD) et la Location avec Option d'Achat (LOA) séduisent plus de 65% des entreprises françaises pour financer leur parc automobile. Le principe est séduisant : des loyers mensuels stables, la maintenance incluse et un renouvellement régulier des véhicules. Pourtant, au moment de rendre les clés au loueur (Arval, ALD Automotive, LeasePlan, Alphabet...), la facture de clôture réserve souvent de mauvaises surprises.</p>
+      <p>Selon les données du Syndicat National des Loueurs de Véhicules en Longue Durée (SNLVLD), la facture moyenne de restitution s'élève entre <strong>1 000 € et 2 500 € par véhicule</strong> en l'absence d'anticipation. Multiplié par une flotte de 10 ou 20 véhicules, l'impact financier est considérable.</p>
+
+      <h2>1. Le piège du kilométrage excédentaire</h2>
+      <p>Chaque contrat de leasing est conclu pour une durée et un kilométrage précis (par exemple : 36 mois / 90 000 km). Si le véhicule a parcouru 110 000 km au moment de la restitution, les 20 000 km excédentaires vous seront facturés au tarif prévu par le barème contractuel : généralement entre <strong>0,08 € et 0,18 € HT le kilomètre</strong>.</p>
+      <p>Résultat : une pénalité directe de 1 600 € à 3 600 € HT sur un seul véhicule !</p>
+      <p><strong>Comment l'éviter ?</strong> Suivez l'évolution kilométrique de votre parc mois par mois. Si vous observez une dérive au bout de 18 ou 24 mois, contactez votre loueur pour demander un <em>avenant kilométrique</em>. Réajuster le contrat en amont augmente légèrement la mensualité restante mais coûte beaucoup moins cher que de subir la pénalité brute en fin de contrat.</p>
+
+      <h2>2. Usure normale vs Dégradation facturable : comprendre la grille du SNLVLD</h2>
+      <p>L'expert mandaté par le loueur lors de la restitution s'appuie sur une grille standardisée pour inspecter la carrosserie et l'habitacle :</p>
+      <ul>
+        <li><strong>Ce qui est toléré (usure normale) :</strong> Les micro-rayures superficielles qui partent au lustrage, les légers impacts de gravillons sur la face avant n'ayant pas atteint la tôle, ou l'usure naturelle de l'assise conducteur.</li>
+        <li><strong>Ce qui est systématiquement facturé :</strong> Les rayures profondes avec tôle apparente, les bosses ou enfoncements supérieurs à la taille d'une pièce de 2 euros, les optiques ou rétroviseurs fêlés, les déchirures ou brûlures sur la sellerie, et les jantes fortement râpées.</li>
+        <li><strong>Les pneumatiques :</strong> Les pneus doivent avoir une profondeur de sculpture supérieure au témoin légal (1,6 mm), ne présenter aucune hernie, et être impérativement de même marque, modèle et dimension sur le même essieu.</li>
+      </ul>
+
+      <h2>3. Le pré-contrôle de restitution 60 jours avant l'échéance</h2>
+      <p>Ne restituez jamais un véhicule "à l'aveugle". Environ deux mois avant la date de fin de contrat, réalisez un pré-contrôle complet :</p>
+      <ol>
+        <li>Nettoyez intégralement le véhicule (intérieur et extérieur). La crasse empêche de voir les défauts et incite l'expert à une sévérité accrue.</li>
+        <li>Réalisez un état des lieux contradictoire avec le conducteur via l'application mobile Floticar, en photographiant chaque élément suspect.</li>
+        <li>Pour les bosses et rayures franches, faites appel à un spécialiste indépendant du débosselage sans peinture (DSP) ou un carrossier local. Une intervention facturée 120 € chez un artisan vous évitera souvent un devis de remise en état de 450 € chez l'expert du loueur.</li>
+        <li>Vérifiez la présence du double des clés, du carnet d'entretien, du kit anti-crevaison et des câbles de recharge pour les hybrides et électriques (leur absence est facturée au prix fort : jusqu'à 300 € par clé égarée).</li>
+      </ol>
+
+      <div style="margin: 2.5rem 0; padding: 1.5rem; border-radius: 1rem; border: 1px solid #bfdbfe; background-color: #eff6ff;">
+        <h3 style="margin-top: 0; color: #1e3a8a; font-size: 1.15rem; font-weight: 700;">Pilotez vos contrats de leasing sans dépassement</h3>
+        <p style="margin: 0.5rem 0 1rem; color: #1e40af; font-size: 0.95rem; line-height: 1.5;">Suivez les compteurs de vos véhicules loués, anticipez les dates de restitution et documentez les anomalies en photo au fil de l'eau avec Floticar.</p>
+        <a href="/remplacer-excel-gestion-flotte" style="display: inline-block; padding: 0.75rem 1.25rem; border-radius: 0.75rem; background-color: #2563eb; color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+          Découvrir la solution Floticar pour vos contrats →
+        </a>
+      </div>
+
+      <h2>4. Garder une traçabilité numérique tout au long de la détention</h2>
+      <p>Le meilleur moyen de ne pas subir la restitution reste de documenter l'état du véhicule tout au long de sa vie dans l'entreprise. En cas de sinistre ou d'accrochage, faire remonter l'anomalie en temps réel et la déclarer à l'assurance dans les délais légaux (5 jours ouvrés) permet d'absorber la charge au fur et à mesure plutôt que d'accumuler une dette technique à la restitution.</p>
+    `,
+    date: "18 Octobre 2026",
+    author: "Équipe Floticar",
+    category: "Gestion Financière",
     readTime: "8 min",
   }
 ];
@@ -206,3 +376,4 @@ export const BLOG_POSTS: BlogPost[] = [
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find(post => post.slug === slug);
 }
+

@@ -7,10 +7,13 @@ export default function CookieBanner() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const consent = localStorage.getItem("cookieConsent");
-        if (!consent) {
-            setIsVisible(true);
-        }
+        const timer = setTimeout(() => {
+            const consent = localStorage.getItem("cookieConsent");
+            if (!consent) {
+                setIsVisible(true);
+            }
+        }, 100);
+        return () => clearTimeout(timer);
     }, []);
 
     const handleAccept = () => {
@@ -25,7 +28,7 @@ export default function CookieBanner() {
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 100, opacity: 0 }}
-                    className="fixed bottom-4 left-4 right-4 z-50 rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-gray-200 md:bottom-8 md:left-auto md:right-8 md:max-w-sm dark:bg-gray-900 dark:ring-gray-800"
+                    className="fixed right-4 bottom-4 left-4 z-50 rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-gray-200 md:right-8 md:bottom-8 md:left-auto md:max-w-sm dark:bg-gray-900 dark:ring-gray-800"
                 >
                     <h3 className="mb-2 font-bold text-gray-900 dark:text-white">🍪 Gestion des cookies</h3>
                     <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">

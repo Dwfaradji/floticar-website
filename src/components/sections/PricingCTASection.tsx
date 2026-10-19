@@ -13,7 +13,7 @@ export default function PricingCTASection() {
                         Curieux de connaître nos <span className="text-blue-600 dark:text-blue-400">tarifs</span> ?
                     </h2>
                     <p className="mx-auto mb-10 max-w-2xl text-lg text-gray-500 dark:text-gray-400">
-                        Un modèle de tarification simple, sans frais cachés, qui s'adapte parfaitement à la taille de votre flotte automobile.
+                        Un modèle de tarification simple, sans frais cachés, qui s&apos;adapte parfaitement à la taille de votre flotte automobile.
                     </p>
                     <Link
                         href="/tarifs"

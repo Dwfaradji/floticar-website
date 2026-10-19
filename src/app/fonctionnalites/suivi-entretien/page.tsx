@@ -58,7 +58,7 @@ export default function SuiviEntretienPage() {
                     </motion.div>
                     
                     <motion.h1 variants={fadeUp} className="mb-6 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl dark:text-white">
-                        <span className="text-blue-600 dark:text-blue-400">Automatisez</span> le suivi d'entretien de votre flotte.
+                        <span className="text-blue-600 dark:text-blue-400">Automatisez</span> le suivi d&apos;entretien de votre flotte.
                     </motion.h1>
                     
                     <motion.p variants={fadeUp} className="mx-auto mb-10 max-w-2xl text-lg text-gray-600 dark:text-gray-300">
@@ -87,7 +87,7 @@ export default function SuiviEntretienPage() {
                                 Prévenir plutôt que guérir.
                             </h2>
                             <p className="mb-8 text-lg text-gray-600 dark:text-gray-400">
-                                La majorité des surcoûts d'une flotte automobile provient d'un manque de maintenance préventive. Un véhicule immobilisé, c'est un collaborateur à l'arrêt et une perte d'exploitation.
+                                La majorité des surcoûts d&apos;une flotte automobile provient d&apos;un manque de maintenance préventive. Un véhicule immobilisé, c&apos;est un collaborateur à l&apos;arrêt et une perte d&apos;exploitation.
                             </p>
                             <ul className="space-y-4">
                                 {BENEFITS.map((benefit, idx) => (
@@ -105,11 +105,11 @@ export default function SuiviEntretienPage() {
                             transition={{ duration: 0.6 }}
                             className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-xl dark:border-gray-800 dark:bg-gray-950"
                         >
-                            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl" />
-                            <Settings className="mb-6 h-12 w-12 text-blue-600 dark:text-blue-400 animate-[spin_4s_linear_infinite]" />
-                            <h3 className="mb-4 text-xl font-bold dark:text-white">L'importance de l'anticipation</h3>
+                            <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl" />
+                            <Settings className="mb-6 h-12 w-12 animate-[spin_4s_linear_infinite] text-blue-600 dark:text-blue-400" />
+                            <h3 className="mb-4 text-xl font-bold dark:text-white">L&apos;importance de l&apos;anticipation</h3>
                             <p className="text-gray-600 dark:text-gray-400">
-                                Un entretien repoussé augmente de <strong className="text-gray-900 dark:text-white">40%</strong> la probabilité d'une panne majeure. Avec Floticar, planifiez vos interventions aux périodes de faible activité pour ne jamais bloquer votre entreprise.
+                                Un entretien repoussé augmente de <strong className="text-gray-900 dark:text-white">40%</strong> la probabilité d&apos;une panne majeure. Avec Floticar, planifiez vos interventions aux périodes de faible activité pour ne jamais bloquer votre entreprise.
                             </p>
                         </motion.div>
                     </div>

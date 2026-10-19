@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
 
     return {
-        title: `${post.title} | Blog Floticar`,
+        title: post.title,
         description: post.excerpt,
         alternates: {
             canonical: `https://floticar.com/blog/${post.slug}`
@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <hr className="my-10 border-gray-200 dark:border-gray-800" />
 
                 <div 
-                    className="mx-auto max-w-none [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-10 [&>h2]:mb-4 [&>h2]:text-gray-900 dark:[&>h2]:text-white [&>p]:text-gray-600 dark:[&>p]:text-gray-400 [&>p]:mb-4 [&>p]:leading-relaxed"
+                    className="mx-auto max-w-none [&>h2]:mt-10 [&>h2]:mb-4 [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-gray-900 dark:[&>h2]:text-white [&>p]:mb-4 [&>p]:leading-relaxed [&>p]:text-gray-600 dark:[&>p]:text-gray-400"
                     dangerouslySetInnerHTML={{ __html: post.content }}
                 />
             </article>

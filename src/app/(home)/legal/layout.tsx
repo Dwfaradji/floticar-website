@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Mentions Légales | Floticar",
+    title: "Mentions Légales",
     description: "Retrouvez les mentions légales du site Floticar, éditeur de solution SaaS pour la gestion de flotte automobile des entreprises et PME.",
     alternates: {
         canonical: "https://floticar.com/legal"

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Politique de Confidentialité | Floticar",
+    title: "Politique de Confidentialité",
     description: "Découvrez comment Floticar protège et traite vos données personnelles. La sécurité des informations de votre flotte automobile est notre priorité.",
     alternates: {
         canonical: "https://floticar.com/privacy"

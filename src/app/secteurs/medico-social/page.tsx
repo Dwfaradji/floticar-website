@@ -62,7 +62,7 @@ export default function MedicoSocialPage() {
                     </motion.h1>
                     
                     <motion.p variants={fadeUp} className="mx-auto mb-10 max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-                        Gagnez du temps sur la logistique pour vous concentrer sur l'essentiel : l'accompagnement de vos usagers. Floticar simplifie la réservation et le suivi de vos véhicules de service.
+                        Gagnez du temps sur la logistique pour vous concentrer sur l&apos;essentiel : l&apos;accompagnement de vos usagers. Floticar simplifie la réservation et le suivi de vos véhicules de service.
                     </motion.p>
                     
                     <motion.div variants={fadeUp} className="flex justify-center gap-4">
@@ -87,7 +87,7 @@ export default function MedicoSocialPage() {
                                 Une réponse concrète aux défis du secteur associatif.
                             </h2>
                             <p className="mb-8 text-lg text-gray-600 dark:text-gray-400">
-                                Nous savons que la gestion d'un parc automobile dans le médico-social est complexe : carnets de bord papier, véhicules partagés entre plusieurs éducateurs, gestion multi-sites... Floticar digitalise tout cela de manière intuitive.
+                                Nous savons que la gestion d&apos;un parc automobile dans le médico-social est complexe : carnets de bord papier, véhicules partagés entre plusieurs éducateurs, gestion multi-sites... Floticar digitalise tout cela de manière intuitive.
                             </p>
                             <ul className="space-y-4">
                                 {BENEFITS.map((benefit, idx) => (
@@ -105,11 +105,11 @@ export default function MedicoSocialPage() {
                             transition={{ duration: 0.6 }}
                             className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-xl dark:border-gray-800 dark:bg-gray-950"
                         >
-                            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl" />
+                            <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl" />
                             <Car className="mb-6 h-12 w-12 text-blue-600 dark:text-blue-400" />
                             <h3 className="mb-4 text-xl font-bold dark:text-white">Le saviez-vous ?</h3>
                             <p className="text-gray-600 dark:text-gray-400">
-                                Un établissement médico-social utilisant un logiciel centralisé réduit de <strong className="text-gray-900 dark:text-white">25%</strong> le temps passé par les chefs de service sur la gestion logistique des véhicules, libérant ainsi des ressources précieuses pour la coordination d'équipe.
+                                Un établissement médico-social utilisant un logiciel centralisé réduit de <strong className="text-gray-900 dark:text-white">25%</strong> le temps passé par les chefs de service sur la gestion logistique des véhicules, libérant ainsi des ressources précieuses pour la coordination d&apos;équipe.
                             </p>
                         </motion.div>
                     </div>
@@ -124,7 +124,7 @@ export default function MedicoSocialPage() {
                             Des fonctionnalités pensées pour vos équipes
                         </h2>
                         <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-                            Une interface simple à prendre en main, même pour le personnel peu à l'aise avec l'informatique.
+                            Une interface simple à prendre en main, même pour le personnel peu à l&apos;aise avec l&apos;informatique.
                         </p>
                     </div>
 
@@ -143,6 +143,49 @@ export default function MedicoSocialPage() {
                                 <p className="text-gray-600 dark:text-gray-400">{feat.desc}</p>
                             </motion.div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* SECTEURS SPÉCIFIQUES MÉDICO-SOCIAL (TOPIC CLUSTER) */}
+            <section className="border-t border-gray-100 bg-white px-6 py-20 dark:border-gray-800 dark:bg-[#030409]">
+                <div className="mx-auto max-w-5xl">
+                    <div className="mb-12 text-center">
+                        <span className="text-xs font-bold tracking-wider text-blue-600 uppercase dark:text-blue-400">
+                            Pôle Médico-Social
+                        </span>
+                        <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+                            Des solutions adaptées à vos structures
+                        </h2>
+                        <p className="mt-2 text-base text-gray-600 dark:text-gray-400">
+                            Découvrez nos modules configurés pour répondre aux spécificités de chaque type d&apos;établissement.
+                        </p>
+                    </div>
+
+                    <div className="grid gap-6 sm:grid-cols-2">
+                        <Link
+                            href="/secteurs/ime"
+                            className="group relative rounded-2xl border border-gray-200 bg-gray-50/50 p-8 transition-all hover:border-blue-300 hover:bg-blue-50/20 dark:border-gray-800 dark:bg-gray-900/40 dark:hover:border-blue-800"
+                        >
+                            <h3 className="mb-3 text-xl font-bold text-gray-900 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+                                Instituts Médico-Éducatifs (IME) →
+                            </h3>
+                            <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                                Gestion des tournées de minibus, contrôle de sécurité strict, suivi des véhicules TPMR adaptés et carnets de bord numériques.
+                            </p>
+                        </Link>
+
+                        <Link
+                            href="/secteurs/sessad"
+                            className="group relative rounded-2xl border border-gray-200 bg-gray-50/50 p-8 transition-all hover:border-emerald-300 hover:bg-emerald-50/20 dark:border-gray-800 dark:bg-gray-900/40 dark:hover:border-emerald-800"
+                        >
+                            <h3 className="mb-3 text-xl font-bold text-gray-900 group-hover:text-emerald-600 dark:text-white dark:group-hover:text-emerald-400">
+                                SESSAD (Services d&apos;Éducation & Soins) →
+                            </h3>
+                            <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                                Rotation fluide des citadines de pool partagées entre éducateurs et soignants itinérants pour les visites d&apos;écoles et domiciles.
+                            </p>
+                        </Link>
                     </div>
                 </div>
             </section>

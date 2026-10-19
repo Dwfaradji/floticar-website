@@ -14,8 +14,10 @@ const NAV_LINKS = [
     label: "Solutions",
     href: "",
     children: [
-      { label: "Secteur Médico-social", href: "/secteurs/medico-social" },
-      { label: "Secteur PME / TPE", href: "/secteurs/pme-tpe" },
+      { label: "Remplacer Excel", href: "/remplacer-excel-gestion-flotte" },
+      { label: "Gestion Flotte PME", href: "/gestion-flotte-pme" },
+      { label: "Associations", href: "/gestion-flotte-association" },
+      { label: "Médico-social (IME, SESSAD)", href: "/secteurs/medico-social" },
       { label: "Suivi d'entretien", href: "/fonctionnalites/suivi-entretien" },
     ],
   },
@@ -52,9 +54,9 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-2.5 transition">
-          <div className="relative h-8 w-8">
-            <Image src="/images/logo-light-transparent.png" alt="" fill className="object-contain transition group-hover:opacity-90 dark:hidden" priority />
-            <Image src="/images/logo-dark-transparent.png" alt="" fill className="hidden object-contain transition group-hover:opacity-90 dark:block" priority />
+          <div className="relative h-12 w-12">
+            <Image src="/images/logo-light-transparent.png" alt="" fill sizes="32px" className="object-contain transition group-hover:opacity-90 dark:hidden" priority />
+            <Image src="/images/logo-dark-transparent.png" alt="" fill sizes="32px" className="hidden object-contain transition group-hover:opacity-90 dark:block" priority />
           </div>
           <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-xl font-bold tracking-tight text-transparent transition group-hover:opacity-90 dark:from-blue-500 dark:to-blue-400">
             Floticar
@@ -70,11 +72,11 @@ export default function Header() {
               return (
                 <div
                   key={link.label}
-                  className="relative group"
+                  className="group relative"
                   onMouseEnter={() => setOpenDropdown(link.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <button className={`flex items-center gap-1 relative rounded-lg px-3.5 py-2 text-sm font-medium transition-all duration-200 ${isActive ? "text-blue-600 dark:text-blue-400" : "text-gray-600 hover:bg-blue-50/80 hover:text-blue-600 dark:text-gray-400 dark:hover:bg-blue-900/20 dark:hover:text-blue-400"}`}>
+                  <button className={`relative flex items-center gap-1 rounded-lg px-3.5 py-2 text-sm font-medium transition-all duration-200 ${isActive ? "text-blue-600 dark:text-blue-400" : "text-gray-600 hover:bg-blue-50/80 hover:text-blue-600 dark:text-gray-400 dark:hover:bg-blue-900/20 dark:hover:text-blue-400"}`}>
                     {link.label}
                     <ChevronDown size={14} className={`transition-transform ${openDropdown === link.label ? "rotate-180" : ""}`} />
                     {isActive && (
@@ -89,7 +91,7 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute left-0 top-full mt-1 w-64 rounded-xl border border-gray-100 bg-white p-2 shadow-xl dark:border-gray-800 dark:bg-gray-950"
+                        className="absolute top-full left-0 mt-1 w-64 rounded-xl border border-gray-100 bg-white p-2 shadow-xl dark:border-gray-800 dark:bg-gray-950"
                       >
                         {link.children.map((child) => (
                           <Link
@@ -162,7 +164,7 @@ export default function Header() {
                 if (link.children) {
                   return (
                     <div key={link.label} className="flex flex-col gap-1">
-                      <div className="px-3 py-2 text-xs font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                      <div className="px-3 py-2 text-xs font-bold tracking-wider text-gray-400 uppercase dark:text-gray-500">
                         {link.label}
                       </div>
                       {link.children.map((child) => (
@@ -170,7 +172,7 @@ export default function Header() {
                           key={child.href}
                           href={child.href}
                           onClick={() => setOpen(false)}
-                          className={`rounded-lg px-3 py-2 text-sm font-medium transition ml-2 ${pathname === child.href ? "bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400" : "text-gray-600 hover:bg-gray-50 hover:text-blue-600 dark:text-gray-400 dark:hover:bg-gray-900 dark:hover:text-blue-400"}`}
+                          className={`ml-2 rounded-lg px-3 py-2 text-sm font-medium transition ${pathname === child.href ? "bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400" : "text-gray-600 hover:bg-gray-50 hover:text-blue-600 dark:text-gray-400 dark:hover:bg-gray-900 dark:hover:text-blue-400"}`}
                         >
                           {child.label}
                         </Link>

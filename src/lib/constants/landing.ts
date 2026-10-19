@@ -97,10 +97,10 @@ export const BENEFITS = [
 ];
 
 export const TARGETS = [
-    { icon: Building2, title: "PME & ETI", desc: "Entreprises avec une flotte de véhicules de service ou de livraison." },
-    { icon: Wrench, title: "Sociétés de services", desc: "Techniciens terrain, maintenance, installation & BTP." },
-    { icon: Truck, title: "Transport léger", desc: "Coursiers, prestataires logistiques, agences de location." },
-    { icon: Activity, title: "Transport Médico-social", desc: "DITEP, IME, SESSAD ..." },
+    { icon: Building2, title: "PME & ETI", desc: "Entreprises avec une flotte de véhicules de service, commerciaux ou de direction.", href: "/gestion-flotte-pme" },
+    { icon: Users, title: "Associations & Collectivités", desc: "Gestion rigoureuse des véhicules partagés, réservations et conducteurs bénévoles.", href: "/gestion-flotte-association" },
+    { icon: Truck, title: "Transport léger & Livraison VL", desc: "Sous-traitance colis, coursiers et tournées urbaines avec suivi d'usure et QR code.", href: "/blog/gestion-flotte-livraison-vl-messagerie" },
+    { icon: Activity, title: "Transport Médico-social", desc: "IME, SESSAD, DITEP : sécurisation des tournées, conformité et traçabilité des éducateurs.", href: "/secteurs/medico-social" },
 ];
 
 export const CERTIFS = [

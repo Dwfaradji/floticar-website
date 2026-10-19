@@ -9,7 +9,7 @@ export default function TestimonialSection() {
             <div className="pointer-events-none absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-600/5 blur-[100px]" />
 
             <div className="relative z-10 mx-auto max-w-4xl px-6">
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -28,11 +28,11 @@ export default function TestimonialSection() {
 
                     <div className="flex flex-col items-center justify-center gap-4">
                         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-gray-900 to-gray-700 text-lg font-bold text-white shadow-lg dark:from-white dark:to-gray-300 dark:text-gray-900">
-                            JD
+                            JQ
                         </div>
                         <div>
-                            <div className="text-lg font-bold text-gray-900 dark:text-white">Julien Dupont</div>
-                            <div className="text-sm font-medium text-gray-500 dark:text-gray-400">Directeur des Opérations · PME Île-de-France</div>
+                            <div className="text-lg font-bold text-gray-900 dark:text-white">Julien Quiniou</div>
+                            <div className="text-sm font-medium text-gray-500 dark:text-gray-400">Directeur Logistique · Île-de-France</div>
                         </div>
                     </div>
                 </motion.div>

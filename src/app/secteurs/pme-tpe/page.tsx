@@ -62,7 +62,7 @@ export default function PMETPEPage() {
                     </motion.h1>
                     
                     <motion.p variants={fadeUp} className="mx-auto mb-10 max-w-2xl text-lg text-gray-600 dark:text-gray-300">
-                        Un parc automobile mal géré est un gouffre financier silencieux. Floticar structure votre gestion de véhicules d'entreprise pour maximiser votre rentabilité.
+                        Un parc automobile mal géré est un gouffre financier silencieux. Floticar structure votre gestion de véhicules d&apos;entreprise pour maximiser votre rentabilité.
                     </motion.p>
                     
                     <motion.div variants={fadeUp} className="flex justify-center gap-4">
@@ -84,10 +84,10 @@ export default function PMETPEPage() {
                             transition={{ duration: 0.6 }}
                         >
                             <h2 className="mb-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
-                                Arrêtez de perdre de l'argent avec Excel.
+                                Arrêtez de perdre de l&apos;argent avec Excel.
                             </h2>
                             <p className="mb-8 text-lg text-gray-600 dark:text-gray-400">
-                                La gestion sur tableur engendre des erreurs coûteuses : amendes majorées, dépassements kilométriques facturés au prix fort, ou usure prématurée par manque d'entretien. Floticar vous protège.
+                                La gestion sur tableur engendre des erreurs coûteuses : amendes majorées, dépassements kilométriques facturés au prix fort, ou usure prématurée par manque d&apos;entretien. Floticar vous protège.
                             </p>
                             <ul className="space-y-4">
                                 {BENEFITS.map((benefit, idx) => (
@@ -105,7 +105,7 @@ export default function PMETPEPage() {
                             transition={{ duration: 0.6 }}
                             className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white p-8 shadow-xl dark:border-gray-800 dark:bg-gray-950"
                         >
-                            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl" />
+                            <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl" />
                             <TrendingUp className="mb-6 h-12 w-12 text-blue-600 dark:text-blue-400" />
                             <h3 className="mb-4 text-xl font-bold dark:text-white">Retour sur Investissement (ROI)</h3>
                             <p className="text-gray-600 dark:text-gray-400">

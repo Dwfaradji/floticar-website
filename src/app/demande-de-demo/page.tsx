@@ -247,15 +247,15 @@ export default function DemoRequestPage() {
                                             </div>
 
                                             {status === "error" && (
-                                                <p className="flex items-start gap-2 text-sm text-red-500 font-medium">
-                                                    <AlertCircle size={16} className="shrink-0 mt-0.5" /> <span>{errorMessage}</span>
+                                                <p className="flex items-start gap-2 text-sm font-medium text-red-500">
+                                                    <AlertCircle size={16} className="mt-0.5 shrink-0" /> <span>{errorMessage}</span>
                                                 </p>
                                             )}
 
                                             <button
                                                 type="submit"
                                                 disabled={status === "loading" || !consent}
-                                                className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-blue-600 py-4 text-sm font-bold text-white transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-500/20 disabled:opacity-70 disabled:cursor-not-allowed"
+                                                className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl bg-blue-600 py-4 text-sm font-bold text-white transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-500/20 disabled:cursor-not-allowed disabled:opacity-70"
                                             >
                                                 {status === "loading" ? (
                                                     <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />

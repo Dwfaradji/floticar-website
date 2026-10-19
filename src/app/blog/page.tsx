@@ -34,7 +34,7 @@ export default function BlogIndexPage() {
                         transition={{ delay: 0.2 }}
                         className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-300"
                     >
-                        Décryptage de l'actualité, conseils d'optimisation du TCO et guides pratiques pour les gestionnaires de parc automobile.
+                        Décryptage de l&apos;actualité, conseils d&apos;optimisation du TCO et guides pratiques pour les gestionnaires de parc automobile.
                     </motion.p>
                 </div>
             </section>
@@ -49,23 +49,23 @@ export default function BlogIndexPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 * idx }}
-                                className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white transition hover:shadow-lg dark:border-gray-800 dark:bg-gray-950"
+                                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-gray-200 bg-white transition hover:shadow-lg dark:border-gray-800 dark:bg-gray-950"
                             >
                                 <div className="p-6">
-                                    <div className="mb-4 flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                                    <div className="mb-4 flex items-center justify-between text-xs font-semibold tracking-wider text-blue-600 uppercase dark:text-blue-400">
                                         <span>{post.category}</span>
                                         <span className="flex items-center gap-1 text-gray-400"><Clock size={14} /> {post.readTime}</span>
                                     </div>
-                                    <h2 className="mb-3 text-xl font-bold leading-tight text-gray-900 transition group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
+                                    <h2 className="mb-3 text-xl leading-tight font-bold text-gray-900 transition group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
                                         <Link href={`/blog/${post.slug}`} className="before:absolute before:inset-0">
                                             {post.title}
                                         </Link>
                                     </h2>
-                                    <p className="text-gray-600 line-clamp-3 dark:text-gray-400">
+                                    <p className="line-clamp-3 text-gray-600 dark:text-gray-400">
                                         {post.excerpt}
                                     </p>
                                 </div>
-                                <div className="border-t border-gray-100 bg-gray-50/50 p-6 flex items-center justify-between dark:border-gray-800 dark:bg-gray-900/20">
+                                <div className="flex items-center justify-between border-t border-gray-100 bg-gray-50/50 p-6 dark:border-gray-800 dark:bg-gray-900/20">
                                     <div className="text-sm text-gray-500 dark:text-gray-400">{post.date}</div>
                                     <div className="flex items-center gap-1 text-sm font-semibold text-blue-600 transition group-hover:translate-x-1 dark:text-blue-400">
                                         Lire la suite <ArrowRight size={16} />

@@ -1,10 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/animations";
 import { PAINS } from "@/lib/constants/landing";
-
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, ArrowRight, FileSpreadsheet } from "lucide-react";
 
 export default function ProblemSection() {
     return (
@@ -47,6 +47,37 @@ export default function ProblemSection() {
                         </motion.div>
                     ))}
                 </div>
+
+                {/* EXCEL TRANSITION CALLOUT BANNER */}
+                <motion.div
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="mt-12 overflow-hidden rounded-[2rem] border border-blue-500/20 bg-gradient-to-r from-blue-950/40 via-blue-900/20 to-cyan-950/30 p-8 backdrop-blur-md transition-all hover:border-blue-500/40"
+                >
+                    <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+                        <div className="flex items-start gap-5">
+                            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-400 ring-1 ring-blue-500/20">
+                                <FileSpreadsheet size={24} />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold text-white">
+                                    Vous gérez encore votre parc automobile sur un fichier Excel ?
+                                </h3>
+                                <p className="mt-1 max-w-2xl text-sm leading-relaxed text-gray-300">
+                                    Dépassements kilométriques imprévus, contrôles techniques oubliés, formules cassées... Découvrez comment Floticar prend le relais avec un import gratuit de vos données sous 24h.
+                                </p>
+                            </div>
+                        </div>
+                        <Link
+                            href="/remplacer-excel-gestion-flotte"
+                            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-500"
+                        >
+                            Remplacer mon Excel gratuitement <ArrowRight size={16} />
+                        </Link>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );

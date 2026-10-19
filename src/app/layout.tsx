@@ -73,9 +73,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: "https://floticar.com",
-  },
   icons: {
     icon: [
       { url: "/favicon-light.png", media: "(prefers-color-scheme: light)" },
@@ -110,7 +107,7 @@ const jsonLd = {
   description:
     "Logiciel de gestion de flotte automobile pour PME. Suivi véhicules, conducteurs, entretiens, dépenses et rapports en temps réel.",
   url: "https://floticar.com",
-  logo: "https://floticar.com/logo.png",
+  logo: "https://floticar.com/images/logo-light-transparent.png",
 };
 
 export default function RootLayout({

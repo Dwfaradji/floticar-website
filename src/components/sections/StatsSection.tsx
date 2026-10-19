@@ -6,7 +6,7 @@ import { STATS } from "@/lib/constants/landing";
 export default function StatsSection() {
     return (
         <section className="relative z-20 my-5 ">
-            <div className="flex w-full justify-center bg-white">
+            <div className="flex w-full justify-center bg-white dark:bg-transparent">
                 <div className=" w-full max-w-5xl rounded-[2rem] border border-gray-200/50  p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] backdrop-blur-2xl dark:border-white/10 dark:bg-[#0a0a0a]/80 dark:shadow-[0_20px_60px_-15px_rgba(255,255,255,0.02)]">
                     <div className="grid grid-cols-2 gap-8 sm:grid-cols-2 md:grid-cols-4 md:divide-x md:divide-gray-200/50 dark:md:divide-white/10">
                         {STATS.map((s, i) => (

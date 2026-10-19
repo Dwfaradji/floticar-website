@@ -50,11 +50,11 @@ export default function HeroSection() {
                     variants={fadeUp}
                     className="mb-8 max-w-4xl text-5xl font-bold tracking-tighter text-white sm:text-6xl md:text-7xl lg:text-[5rem] lg:leading-[1.1]"
                 >
-                    La gestion de flotte,{" "}
+                    Le logiciel de gestion de flotte,{" "}
                     <br className="hidden md:block" />
-                    repensée pour{" "}
+                    pensé pour{" "}
                     <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                        l&apos;excellence.
+                        les PME et associations.
                     </span>
                 </motion.h1>
 
