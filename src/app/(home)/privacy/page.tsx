@@ -35,7 +35,7 @@ function Section({ id, number, icon: Icon, title, children }: {
         <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
           <Icon size={18} />
         </div>
-        <h2 className="text-foreground text-lg font-bold">
+        <h2 className="text-lg font-bold text-foreground">
           <span className="mr-2 text-blue-400">{number}.</span>{title}
         </h2>
       </div>
@@ -71,7 +71,7 @@ export default function PrivacyPage() {
           <Shield size={12} /> Confidentialité
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-          className="text-foreground mb-3 text-4xl font-bold tracking-tight md:text-5xl">
+          className="mb-3 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
           Politique de confidentialité
         </motion.h1>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}

@@ -3,35 +3,34 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, Mail, Zap, Lock, Users, Send, AlertCircle } from "lucide-react";
-
-import type { Variants } from "framer-motion";
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55 } },
-};
+import { checkEmailRules } from "@/lib/email-rules";
+import { EASE_OUT_EXPO, fadeUp } from "@/lib/animations";
+import GlowCard from "@/components/ui/GlowCard";
 
 const features = [
   {
     icon: Zap,
-    title: "Réponse sous 24h",
-    desc: "Notre équipe s'engage à vous répondre rapidement pour vous aider à démarrer.",
-    color: "from-blue-500 to-blue-600",
-    bg: "bg-blue-50 border-blue-100",
+    title: "Réponse garantie sous 24h",
+    desc: "Notre équipe technique et commerciale vous répond rapidement pour vous aider à démarrer sans friction.",
+    color: "text-blue-500",
+    bg: "bg-blue-500/10",
+    glow: "rgba(59, 130, 246, 0.25)",
   },
   {
     icon: Users,
-    title: "Accompagnement personnalisé",
-    desc: "Chaque flotte est unique. Nous adaptons notre solution à vos besoins.",
-    color: "from-emerald-500 to-emerald-600",
-    bg: "bg-emerald-50 border-emerald-100",
+    title: "Accompagnement sur-mesure",
+    desc: "Chaque flotte est unique. Nous configurons Floticar selon vos contraintes métier spécifiques.",
+    color: "text-cyan-500",
+    bg: "bg-cyan-500/10",
+    glow: "rgba(6, 182, 212, 0.25)",
   },
   {
     icon: Lock,
-    title: "Données confidentielles",
-    desc: "Vos informations sont protégées et ne seront jamais partagées.",
-    color: "from-violet-500 to-violet-600",
-    bg: "bg-violet-50 border-violet-100",
+    title: "Données 100% souveraines",
+    desc: "Vos informations sont chiffrées de bout en bout et hébergées exclusivement en France (RGPD).",
+    color: "text-indigo-500",
+    bg: "bg-indigo-500/10",
+    glow: "rgba(99, 102, 241, 0.25)",
   },
 ];
 
@@ -55,7 +54,9 @@ export default function ContactPage() {
     // Custom validation
     const newErrors: Record<string, string> = {};
     if (!form.name.trim()) newErrors.name = "Le nom est requis.";
+    const emailCheck = checkEmailRules(form.email);
     if (!form.email.trim()) newErrors.email = "L'email est requis.";
+    else if (!emailCheck.valid) newErrors.email = emailCheck.reason ?? "";
     if (!form.message.trim()) newErrors.message = "Le message est requis.";
 
     if (Object.keys(newErrors).length > 0) {
@@ -87,144 +88,177 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen">
+    <main className="relative isolate min-h-screen overflow-hidden pt-28 pb-32 sm:pt-36">
+      {/* Background Aurora */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute top-10 left-1/2 h-[500px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-600/15 via-cyan-400/15 to-indigo-600/10 blur-[160px] motion-safe:animate-aurora" />
+      </div>
 
       {/* HERO */}
-      <section className="relative overflow-hidden px-6 pt-24 pb-16">
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-blue-100/60 blur-3xl" />
-        </div>
-        <motion.div
-          initial="hidden" animate="show"
-          variants={{ show: { transition: { staggerChildren: 0.12 } } }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <motion.div variants={fadeUp}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-xs font-semibold tracking-widest text-blue-600 uppercase"
+      <section className="px-6 text-center">
+        <div className="mx-auto max-w-3xl">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.7, ease: EASE_OUT_EXPO }}
           >
-            <Mail size={12} /> Contactez-nous
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-blue-600 uppercase dark:text-cyan-400">
+              <Mail size={14} /> Contact & Support
+            </div>
+
+            <h1 className="mb-6 text-4xl font-extrabold tracking-tighter text-gray-900 sm:text-5xl md:text-6xl dark:text-white">
+              Parlons de votre{" "}
+              <span className="bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-500 bg-clip-text text-transparent">
+                flotte automobile.
+              </span>
+            </h1>
+
+            <p className="mx-auto max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg dark:text-gray-300">
+              Posez vos questions, sollicitez un audit gratuit de votre organisation ou échangez avec un expert sur vos projets d&apos;optimisation.
+            </p>
           </motion.div>
-          <motion.h1 variants={fadeUp}
-            className="text-foreground mb-4 text-4xl font-bold tracking-tight md:text-5xl"
-          >
-            Parlons de votre <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">flotte</span>
-          </motion.h1>
-          <motion.p variants={fadeUp} className="text-base text-gray-500 md:text-lg dark:text-gray-400">
-            Posez vos questions, demandez une démo ou obtenez plus d&apos;informations sur nos solutions de gestion de flotte.
-          </motion.p>
-        </motion.div>
+        </div>
       </section>
 
       {/* FEATURE CARDS */}
-      <section className="px-6 pb-16">
-        <motion.div
-          initial="hidden" whileInView="show" viewport={{ once: true }}
-          variants={{ show: { transition: { staggerChildren: 0.1 } } }}
-          className="mx-auto grid max-w-4xl gap-4 md:grid-cols-3"
-        >
-          {features.map(({ icon: Icon, title, desc, color, bg }) => (
-            <motion.div key={title} variants={fadeUp}
-              className={`rounded-2xl border p-5 ${bg} transition-all duration-200 hover:-translate-y-1 hover:shadow-md dark:border-gray-800 dark:bg-gray-900/40`}
+      <section className="mt-16 px-6">
+        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+          {features.map(({ icon: Icon, title, desc, color, bg, glow }, idx) => (
+            <motion.div
+              key={title}
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1, duration: 0.7, ease: EASE_OUT_EXPO }}
             >
-              <div className={`mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br ${color} text-white shadow-sm`}>
-                <Icon size={18} />
-              </div>
-              <h3 className="text-foreground mb-1.5 font-semibold">{title}</h3>
-              <p className="text-sm leading-relaxed text-gray-500 dark:text-gray-400">{desc}</p>
+              <GlowCard glowColor={glow} className="h-full !p-8 transition-all duration-300 hover:-translate-y-1.5">
+                <div className={`mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl ${bg} ${color} shadow-sm ring-1 ring-current/20`}>
+                  <Icon size={22} strokeWidth={1.75} />
+                </div>
+                <h3 className="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{title}</h3>
+                <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">{desc}</p>
+              </GlowCard>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </section>
 
       {/* FORM */}
-      <section className="px-6 pb-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} transition={{ duration: 0.6 }}
-          className="mx-auto max-w-xl"
-        >
-          <AnimatePresence mode="wait">
-            {status === "success" ? (
-              <motion.div key="success"
-                initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }}
-                className="flex flex-col items-center gap-4 rounded-3xl border border-emerald-100 bg-gradient-to-b from-emerald-50 to-white p-12 text-center shadow-lg dark:border-emerald-900/30 dark:from-emerald-900/10 dark:to-gray-950 dark:shadow-none"
-              >
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-400">
-                  <CheckCircle size={32} />
-                </div>
-                <h2 className="text-foreground text-xl font-bold">Message envoyé !</h2>
-                <p className="text-gray-500 dark:text-gray-400">Merci pour votre intérêt. Nous vous contacterons sous 24h.</p>
-                <button onClick={() => setStatus("idle")}
-                  className="mt-2 rounded-xl bg-emerald-600 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700">
-                  Envoyer un autre message
-                </button>
-              </motion.div>
-            ) : (
-              <motion.form key="form" onSubmit={handleSubmit} noValidate
-                className="rounded-3xl border border-gray-100 bg-white/80 p-8 shadow-xl shadow-gray-100 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-950/80 dark:shadow-none"
-              >
-                {/* Honeypot field (hidden from real users, filled by bots) */}
-                <input type="text" name="website" value={form.website} onChange={handleChange} tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
-                
-                <h2 className="text-foreground mb-6 text-xl font-bold">Envoyez-nous un message</h2>
-                <div className="space-y-4">
-                  {[
-                    { name: "name", type: "text", label: "Votre nom", placeholder: "Jean Dupont", autoComplete: "name" },
-                    { name: "email", type: "email", label: "Email professionnel", placeholder: "jean@entreprise.com", autoComplete: "email" },
-                  ].map(({ name, type, label, placeholder, autoComplete }) => (
-                    <div key={name}>
-                      <label htmlFor={name} className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">{label}</label>
-                      <input
-                        id={name}
-                        type={type} name={name} placeholder={placeholder}
-                        autoComplete={autoComplete}
-                        value={form[name as keyof typeof form]} onChange={handleChange}
-                        required
-                        className={`input-field focus:input-field-focus ${errors[name] ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
-                      />
-                      {errors[name] && <p className="mt-1.5 text-xs text-red-500">{errors[name]}</p>}
-                    </div>
-                  ))}
-                  <div>
-                    <label htmlFor="message" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-500 uppercase dark:text-gray-400">Votre message</label>
-                    <textarea
-                      id="message"
-                      name="message" placeholder="Décrivez votre flotte ou votre besoin..."
-                      value={form.message} onChange={handleChange}
-                      rows={4}
-                      className={`input-field focus:input-field-focus resize-none ${errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
-                    />
-                    {errors.message && <p className="mt-1.5 text-xs text-red-500">{errors.message}</p>}
+      <section className="mt-16 px-6">
+        <div className="mx-auto max-w-2xl">
+          <GlowCard glowColor="rgba(56, 189, 248, 0.25)" className="!p-8 shadow-2xl sm:!p-12">
+            <AnimatePresence mode="wait">
+              {status === "success" ? (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4 }}
+                  className="flex flex-col items-center py-8 text-center"
+                >
+                  <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-emerald-500/10 text-emerald-500 ring-1 ring-emerald-500/20">
+                    <CheckCircle size={40} />
+                  </div>
+                  <h2 className="mb-3 text-2xl font-extrabold text-gray-900 dark:text-white">Message transmis avec succès !</h2>
+                  <p className="mb-8 text-base text-gray-600 dark:text-gray-400">
+                    Merci pour votre message. Notre équipe prendra contact avec vous dans les 24 heures ouvrées.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setStatus("idle")}
+                    className="rounded-full bg-blue-600 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/25 transition-all hover:scale-105 hover:bg-blue-500"
+                  >
+                    Envoyer un autre message
+                  </button>
+                </motion.div>
+              ) : (
+                <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                  {/* Honeypot field */}
+                  <input type="text" name="website" value={form.website} onChange={handleChange} tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+                  
+                  <div className="mb-6">
+                    <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white">Envoyez-nous un message</h2>
+                    <p className="mt-1 text-xs text-gray-500 dark:text-gray-400">Remplissez ces informations et nous reviendrons vers vous au plus vite.</p>
                   </div>
 
-                  {status === "error" && (
-                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                      className="flex items-start gap-2 text-sm text-red-500 font-medium">
-                      <AlertCircle size={16} className="shrink-0 mt-0.5" /> <span>{errorMessage}</span>
-                    </motion.p>
-                  )}
+                  <div className="space-y-4">
+                    <div>
+                      <label htmlFor="name" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-600 uppercase dark:text-gray-400">Votre nom complet</label>
+                      <input
+                        id="name"
+                        type="text" name="name" placeholder="Jean Dupont"
+                        autoComplete="name"
+                        value={form.name} onChange={handleChange}
+                        required
+                        className={`input-field focus:input-field-focus ${errors.name ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
+                      />
+                      {errors.name && <p className="mt-1.5 text-xs text-red-500">{errors.name}</p>}
+                    </div>
 
-                  <button type="submit" disabled={status === "loading"}
-                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 py-3.5 text-sm font-semibold text-white shadow-md shadow-blue-100 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-200 disabled:cursor-not-allowed disabled:opacity-60"
-                  >
-                    {status === "loading" ? (
-                      <span className="flex items-center gap-2">
-                        <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
-                        Envoi en cours...
-                      </span>
-                    ) : (
-                      <><Send size={15} /> Envoyer ma demande</>
+                    <div>
+                      <label htmlFor="email" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-600 uppercase dark:text-gray-400">Email professionnel</label>
+                      <input
+                        id="email"
+                        type="email" name="email" placeholder="jean@entreprise.com"
+                        autoComplete="email"
+                        value={form.email} onChange={handleChange}
+                        required
+                        className={`input-field focus:input-field-focus ${errors.email ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
+                      />
+                      {errors.email && <p className="mt-1.5 text-xs text-red-500">{errors.email}</p>}
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="mb-1.5 block text-xs font-semibold tracking-wider text-gray-600 uppercase dark:text-gray-400">Votre message</label>
+                      <textarea
+                        id="message"
+                        name="message" placeholder="Décrivez votre besoin, la taille de votre flotte ou vos questions..."
+                        value={form.message} onChange={handleChange}
+                        rows={4}
+                        required
+                        className={`input-field focus:input-field-focus resize-none ${errors.message ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : ''}`}
+                      />
+                      {errors.message && <p className="mt-1.5 text-xs text-red-500">{errors.message}</p>}
+                    </div>
+
+                    {status === "error" && (
+                      <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="flex items-start gap-2 text-sm font-medium text-red-500"
+                      >
+                        <AlertCircle size={16} className="mt-0.5 shrink-0" /> <span>{errorMessage}</span>
+                      </motion.p>
                     )}
-                  </button>
 
-                  <p className="text-center text-xs text-gray-400 dark:text-gray-500">
-                    Réponse sous 24h · Sans engagement · Données confidentielles
-                  </p>
-                </div>
-              </motion.form>
-            )}
-          </AnimatePresence>
-        </motion.div>
+                    <button
+                      type="submit"
+                      disabled={status === "loading"}
+                      className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 py-4 text-base font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:scale-[1.02] hover:shadow-cyan-500/35 disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+                      />
+                      {status === "loading" ? (
+                        <div className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                      ) : (
+                        <>
+                          <span className="relative">Envoyer ma demande</span>
+                          <Send size={16} className="relative transition-transform duration-300 group-hover:translate-x-1" />
+                        </>
+                      )}
+                    </button>
+
+                    <p className="pt-2 text-center text-xs text-gray-500 dark:text-gray-400">
+                      Réponse garantie sous 24h · Données confidentielles & conformes RGPD
+                    </p>
+                  </div>
+                </form>
+              )}
+            </AnimatePresence>
+          </GlowCard>
+        </div>
       </section>
     </main>
   );

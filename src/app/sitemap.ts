@@ -56,6 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.85,
         },
         {
+            url: `${baseUrl}/fonctionnalites/application-mobile`,
+            lastModified: lastUpdate,
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
+        {
             url: `${baseUrl}/fonctionnalites/suivi-entretien`,
             lastModified: lastUpdate,
             changeFrequency: 'monthly',

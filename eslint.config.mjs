@@ -36,7 +36,7 @@ export default defineConfig([
     },
 
     settings: {
-      tailwindcss: {
+      "better-tailwindcss": {
         entryPoint: "src/app/globals.css",
       },
     },

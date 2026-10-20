@@ -54,10 +54,6 @@ export function ThemeToggle() {
                     <Moon size={18} />
                 </motion.div>
             </div>
-
-            <span className="shrink-0 transition-colors">
-                {isDark ? "Mode Clair" : "Mode Sombre"}
-            </span>
         </button>
     );
 }

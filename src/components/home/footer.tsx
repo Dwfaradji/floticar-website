@@ -109,6 +109,11 @@ export default function Footer() {
             </span>
             <ul className="flex flex-col space-y-2.5 text-sm text-gray-600 dark:text-gray-400">
               <li>
+                <Link href="/fonctionnalites/application-mobile" className="transition hover:text-blue-600 dark:hover:text-blue-400">
+                  Application mobile conducteur
+                </Link>
+              </li>
+              <li>
                 <Link href="/fonctionnalites/suivi-entretien" className="transition hover:text-blue-600 dark:hover:text-blue-400">
                   Suivi d&apos;entretien & CT
                 </Link>
