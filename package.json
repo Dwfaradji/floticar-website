@@ -7,6 +7,7 @@
     "build": "next build && mkdir -p .next/standalone/.next && cp -r public .next/standalone/public && cp -r .next/static .next/standalone/.next/static",
     "start": "node .next/standalone/server.js",
     "lint": "eslint",
+    "test": "node --test src/lib/email-validator.test.mjs src/lib/roi/calculator.test.mjs",
     "docker:build": "docker build -t floticar-site .",
     "docker:run": "docker run -p 3000:3000 --env-file .env.local floticar-site"
   },

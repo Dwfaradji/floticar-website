@@ -129,6 +129,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/simulateur" className="transition hover:text-blue-600 dark:hover:text-blue-400">
+                  Simulateur d&apos;économies
+                </Link>
+              </li>
+              <li>
                 <Link href="/tarifs" className="transition hover:text-blue-600 dark:hover:text-blue-400">
                   Tarifs & Abonnements
                 </Link>

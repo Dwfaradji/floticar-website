@@ -219,6 +219,15 @@ export default function PricingSection() {
             <p className="font-semibold text-gray-900 dark:text-white">
               En passant sur Floticar, nos clients constatent en moyenne une réduction de 15% à 20% de leur TCO (Coût Total de Possession). Pour seulement 12,90€ par mois et par véhicule, le logiciel se rembourse de lui-même dès la première pénalité évitée.
             </p>
+            <div className="pt-2">
+              <Link
+                href="/simulateur"
+                className="inline-flex items-center gap-2 rounded-full bg-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-600/20 transition-all hover:scale-[1.02] hover:bg-emerald-500"
+              >
+                <span>Calculer le ROI exact de ma flotte</span>
+                <ArrowRight size={15} />
+              </Link>
+            </div>
           </div>
         </motion.div>
       </section>

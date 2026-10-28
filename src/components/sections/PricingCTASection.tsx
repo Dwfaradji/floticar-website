@@ -51,13 +51,21 @@ export default function PricingCTASection() {
                         </span>
                     </div>
 
-                    <Link
-                        href="/tarifs"
-                        className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-4 text-base font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:scale-[1.03] hover:shadow-cyan-500/30"
-                    >
-                        <span>Découvrir nos tarifs détaillés</span>
-                        <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                    <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+                        <Link
+                            href="/tarifs"
+                            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 px-8 py-4 text-base font-bold text-white shadow-xl shadow-blue-500/25 transition-all duration-300 hover:scale-[1.03] hover:shadow-cyan-500/30"
+                        >
+                            <span>Découvrir nos tarifs détaillés</span>
+                            <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+                        </Link>
+                        <Link
+                            href="/simulateur"
+                            className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-white/80 px-8 py-4 text-base font-bold text-gray-900 transition-all duration-300 hover:scale-[1.03] hover:bg-white dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                        >
+                            <span>Simuler mes économies</span>
+                        </Link>
+                    </div>
                 </motion.div>
             </div>
         </section>

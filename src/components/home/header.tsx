@@ -96,6 +96,7 @@ const NAV_LINKS: NavItem[] = [
       },
     ],
   },
+  { label: "Simulateur", href: "/simulateur" },
   { label: "Tarifs", href: "/tarifs" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
